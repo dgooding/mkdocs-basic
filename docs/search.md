@@ -6,7 +6,6 @@
 # Search Results
 
 <section class="itsd-search-workspace" data-document-search-view>
-  </div>
   <div class="itsd-search-layout">
     <aside class="itsd-search-results" aria-label="Search results">
       <div class="itsd-search-results-header" data-document-search-summary>Enter a search term.</div>
