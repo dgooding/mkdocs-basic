@@ -11,7 +11,7 @@ Before publishing, check that a reader can identify:
 - When it applies and when it does not.
 - What prerequisites, permissions, or approvals are required.
 - Which steps are safe to perform and when to stop.
-- Who owns the next action if the procedure fails.
+- Who owns the next action if the process fails.
 
 ## Writing standards
 
