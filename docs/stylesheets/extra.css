@@ -347,20 +347,25 @@
   border-bottom: 0;
 }
 
-.itsd-suggestion-group summary {
+.itsd-suggestion-group > summary {
   background: #f1f8f9;
   color: var(--itsd-navy);
   cursor: pointer;
+  font-size: 0.85rem;
   font-weight: 700;
-  list-style-position: inside;
+  list-style: none;
   padding: 0.7rem 1rem;
 }
 
-.itsd-suggestion-group summary:hover {
+.itsd-suggestion-group > summary::before {
+  display: none !important;
+}
+
+.itsd-suggestion-group > summary:hover {
   background: #e6f2f5;
 }
 
-.itsd-suggestion-group[open] summary {
+.itsd-suggestion-group[open] > summary {
   border-bottom: 1px solid #d8e7ec;
 }
 
