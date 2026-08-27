@@ -47,13 +47,14 @@ document$.subscribe(function () {
   function render() {
     const suggestions = localSuggestions.concat(sharedIssues)
     const visibleSuggestions = suggestions.length ? suggestions : exampleSuggestions
-    status.textContent = visibleSuggestions.length + " example suggestion" + (visibleSuggestions.length === 1 ? "" : "s")
+    status.textContent = visibleSuggestions.length + " suggestion" + (visibleSuggestions.length === 1 ? "" : "s")
     list.replaceChildren(...visibleSuggestions.map(renderSuggestion))
   }
 
   function exportSuggestions() {
     const suggestions = localSuggestions.concat(sharedIssues)
-    const lines = suggestions.map(function (suggestion) {
+    const exportSuggestions = suggestions.length ? suggestions : exampleSuggestions
+    const lines = exportSuggestions.map(function (suggestion) {
       return suggestion.title + "\r\n" + suggestion.details + "\r\n"
     })
     const blob = new Blob([lines.join("\r\n") || "No suggestions have been submitted yet.\r\n"], { type: "text/plain" })
