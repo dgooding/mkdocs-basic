@@ -24,7 +24,7 @@ Search, filter, and open documents in the shared ITSD library.
 	</select>
 </div>
 
-<div class="itsd-library-summary" data-document-library-summary></div>
+<div class="itsd-library-summary" data-document-library-summary>Loading documents...</div>
 
 <div class="itsd-library-table-wrap">
 	<table class="itsd-library-table">
