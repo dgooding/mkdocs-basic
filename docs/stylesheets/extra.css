@@ -171,6 +171,7 @@
 }
 
 .itsd-suggestion-form input,
+.itsd-suggestion-form select,
 .itsd-suggestion-form textarea {
   border: 1px solid #b9d1db;
   border-radius: 3px;
