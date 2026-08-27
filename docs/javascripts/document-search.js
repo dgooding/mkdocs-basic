@@ -27,6 +27,7 @@ document$.subscribe(function () {
   if (materialSearchToggle) {
     materialSearchToggle.checked = false
   }
+  query.blur()
 
   function stripHtml(value) {
     const element = document.createElement("div")
