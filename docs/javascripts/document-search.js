@@ -40,7 +40,7 @@ document$.subscribe(function () {
   function fuzzyTitleScore(title, term) {
     const normalizedTerm = normalize(term)
     if (normalizedTerm.length < 3) return 0
-    const words = title.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean)
+    const words = title.toLowerCase().split(/\s+/).filter(Boolean)
     return Math.max.apply(null, words.map(function (word) {
       const normalizedWord = normalize(word)
       if (normalizedWord.includes(normalizedTerm) || normalizedTerm.includes(normalizedWord)) return 35
