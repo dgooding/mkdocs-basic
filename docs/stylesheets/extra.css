@@ -153,6 +153,37 @@
   margin: 1.25rem 0;
 }
 
+.itsd-suggestion-form {
+  align-items: start;
+  background: rgb(255 255 255 / 0.72);
+  border: 1px solid #d8e7ec;
+  display: grid;
+  gap: 0.45rem;
+  margin: 1.25rem 0;
+  max-width: 60rem;
+  padding: 1rem;
+}
+
+.itsd-suggestion-form label {
+  color: var(--itsd-navy);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.itsd-suggestion-form input,
+.itsd-suggestion-form textarea {
+  border: 1px solid #b9d1db;
+  border-radius: 3px;
+  color: var(--itsd-navy);
+  font: inherit;
+  padding: 0.5rem 0.6rem;
+}
+
+.itsd-suggestion-form textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
 .itsd-suggestions {
   border: 1px solid #d8e7ec;
   max-width: 60rem;

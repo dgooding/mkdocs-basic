@@ -9,9 +9,17 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 </div>
 
 <div class="itsd-suggestion-actions">
-  <a class="md-button md-button--primary" href="https://github.com/dgooding/mkdocs-basic/issues/new?labels=feature-request&template=feature_request.md">Suggest a feature</a>
-  <a class="md-button" href="https://github.com/dgooding/mkdocs-basic/issues?q=is%3Aissue+is%3Aopen+label%3Afeature-request">View on GitHub</a>
+  <button class="md-button md-button--primary" type="button" data-suggestion-export>Export suggestions</button>
+  <a class="md-button" href="https://github.com/dgooding/mkdocs-basic/issues?q=is%3Aissue+is%3Aopen+label%3Afeature-request">View shared suggestions</a>
 </div>
+
+<form class="itsd-suggestion-form" data-suggestion-form>
+  <label for="suggestion-name">First name</label>
+  <input id="suggestion-name" name="name" type="text" maxlength="40" required>
+  <label for="suggestion-text">Suggestion or problem</label>
+  <textarea id="suggestion-text" name="text" maxlength="500" required></textarea>
+  <button class="md-button md-button--primary" type="submit">Post suggestion</button>
+</form>
 
 <section class="itsd-suggestions" data-suggestions-view>
   <div class="itsd-suggestions-header">
@@ -27,6 +35,6 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 
 **How voting works**
 
-Select **Vote +1** beside a suggestion to open it on GitHub, then add a thumbs-up reaction. GitHub keeps the suggestions and votes shared for everyone.
+Select **Vote +1** beside a shared suggestion to open it on GitHub, then add a thumbs-up reaction. New suggestions typed here appear immediately in this browser. GitHub keeps its shared suggestions and votes available to everyone.
 
 </div>
