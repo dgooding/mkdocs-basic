@@ -9,6 +9,26 @@
   background: var(--itsd-navy);
 }
 
+.itsd-change-log-link {
+  align-items: center;
+  color: #d8f2ed;
+  display: inline-flex;
+  height: 2.2rem;
+  justify-content: center;
+  margin-left: 0.15rem;
+  width: 2.2rem;
+}
+
+.itsd-change-log-link:hover {
+  color: #fff;
+}
+
+.itsd-change-log-link svg {
+  fill: currentColor;
+  height: 1.15rem;
+  width: 1.15rem;
+}
+
 .md-tabs {
   background: var(--itsd-navy);
 }
