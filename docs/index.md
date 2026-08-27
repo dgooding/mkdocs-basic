@@ -53,6 +53,6 @@ Be aware, you have full rights to modify this site, so please don't, just yet. I
 
 <div class="itsd-status" markdown>
 
-**A useful habit:** If you solve the same problem twice, leave the next person a searchable page instead of another mystery [Feed the egg](https://egggame.org/)
+**A useful habit:** If you solve the same problem twice, leave the next person a searchable page instead of another mystery[.](https://egggame.org/)
 
 </div>
