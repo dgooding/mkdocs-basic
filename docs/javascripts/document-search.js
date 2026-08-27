@@ -1,6 +1,9 @@
 document$.subscribe(function () {
   const workspace = document.querySelector("[data-document-search-view]")
-  if (!workspace) return
+  if (!workspace) {
+    document.body.classList.remove("itsd-search-page")
+    return
+  }
 
   const query = document.querySelector("#document-search-query")
   const summary = document.querySelector("[data-document-search-summary]")
