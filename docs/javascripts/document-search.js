@@ -7,6 +7,7 @@ document$.subscribe(function () {
 
   const query = document.querySelector('[data-md-component="search-query"]') || document.querySelector('.md-header input[type="search"]')
   const summary = document.querySelector("[data-document-search-summary]")
+  const suggestion = document.querySelector("[data-document-search-suggestion]")
   const results = document.querySelector("[data-document-search-results]")
   const reader = document.querySelector("[data-document-search-reader]")
   let searchDocuments = []
@@ -73,6 +74,25 @@ document$.subscribe(function () {
     }, 0)
   }
 
+  function spellingSuggestion(terms) {
+    const corrected = terms.map(function (term) {
+      const normalizedTerm = normalize(term)
+      if (normalizedTerm.length < 3) return term
+      let closest = { word: term, distance: Infinity }
+      searchDocuments.forEach(function (item) {
+        item.title.split(/\s+/).forEach(function (word) {
+          const normalizedWord = normalize(word)
+          if (!normalizedWord || normalizedWord === normalizedTerm) return
+          const distance = editDistance(normalizedTerm, normalizedWord)
+          if (distance < closest.distance) closest = { word, distance }
+        })
+      })
+      const tolerance = normalizedTerm.length >= 7 ? 2 : 1
+      return closest.distance <= tolerance ? closest.word : term
+    })
+    return corrected.join(" ") === terms.join(" ") ? "" : corrected.join(" ")
+  }
+
   function excerpt(item, terms) {
     const text = stripHtml(item.text)
     const lowercase = text.toLowerCase()
@@ -125,6 +145,7 @@ document$.subscribe(function () {
     const terms = query.value.trim().toLowerCase().split(/\s+/).filter(Boolean)
     if (!terms.length) {
       summary.textContent = "Enter a search term."
+      suggestion.replaceChildren()
       results.replaceChildren()
       reader.innerHTML = "<p>Choose a result to read it here.</p>"
       return
@@ -136,6 +157,19 @@ document$.subscribe(function () {
       .slice(0, 30)
 
     summary.textContent = matches.length ? matches.length + " matching documents" : "No matching documents"
+    suggestion.replaceChildren()
+    const correctedQuery = spellingSuggestion(terms)
+    if (correctedQuery) {
+      const suggestionButton = document.createElement("button")
+      suggestionButton.type = "button"
+      suggestionButton.className = "itsd-search-suggestion-button"
+      suggestionButton.textContent = "Did you mean: " + correctedQuery + "?"
+      suggestionButton.addEventListener("click", function () {
+        query.value = correctedQuery
+        render()
+      })
+      suggestion.append(suggestionButton)
+    }
     results.replaceChildren(...matches.map(function (entry, index) {
       const item = entry.item
       const button = document.createElement("button")

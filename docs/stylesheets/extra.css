@@ -853,6 +853,22 @@
   padding: 0.8rem 0.9rem;
 }
 
+.itsd-search-suggestion {
+  padding: 0 0.9rem 0.7rem;
+}
+
+.itsd-search-suggestion-button {
+  background: transparent;
+  border: 0;
+  color: var(--itsd-blue);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0;
+  text-align: left;
+  text-decoration: underline;
+}
+
 .itsd-search-result {
   background: transparent;
   border: 0;
