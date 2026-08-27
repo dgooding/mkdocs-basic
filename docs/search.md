@@ -1,7 +1,10 @@
-<div class="itsd-search-bar itsd-global-search">
+<form class="itsd-search-bar itsd-global-search" action="search.html" method="get">
   <label for="document-search-query">Search the knowledge base</label>
-  <input id="document-search-query" type="search" placeholder="Search document titles and content" autocomplete="off">
-</div>
+  <div>
+    <input id="document-search-query" name="q" type="search" placeholder="Search document titles and content" autocomplete="off">
+    <button class="md-button md-button--primary" type="submit">Search</button>
+  </div>
+</form>
 
 # Search Results
 
