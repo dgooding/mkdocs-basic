@@ -26,6 +26,8 @@ jobs:
       - if: github.event_name == 'push'
         run: python scripts/import-archives.py
       - if: github.event_name == 'push'
+        run: python scripts/generate-document-library.py
+      - if: github.event_name == 'push'
         run: |
           if git diff --quiet; then
             exit 0
@@ -33,7 +35,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs
-          git commit -m "Import Markdown archive"
+          git commit -m "Update document library"
           git push
       - run: pip install mkdocs-material==9.7.6
       - run: mkdocs build --strict
