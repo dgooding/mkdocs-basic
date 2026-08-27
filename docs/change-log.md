@@ -32,6 +32,12 @@ This page records the iterative development of the ITSD Documentation site.
 - Verified that a misspelled query such as `deescalted` identifies **De-escalated Tickets** as the best match and loads it in the main reading pane.
 - User acknowledgment: "You badass."
 
+### Support and Suggestions
+
+- Added a GitHub Pages-compatible Support page for shared feature suggestions backed by labeled GitHub Issues.
+- Added a repository Issue template for new suggestions and a positive `+1` voting link that opens each suggestion on GitHub.
+- Verified the live page loads the shared issue list and displays a clear empty state when no suggestions are open.
+
 ### User Experience
 
 - Established the ITSD navy and teal visual theme, logo, typography, and desktop-first navigation.
