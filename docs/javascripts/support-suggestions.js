@@ -39,6 +39,7 @@ document$.subscribe(function () {
     { id: "example-attachments", title: "Add related-document links to each procedure", details: "Example suggestion | Shared support idea" },
     { id: "example-feedback", title: "Add a simple feedback prompt to document pages", details: "Example suggestion | Shared support idea" },
     { id: "example-calendar", title: "Add a calendar of planned maintenance windows", details: "Example suggestion | Shared support idea" },
+    { id: "example-requests", title: "Add a simple documentation change request workflow", details: "Example suggestion | Shared support idea" },
   ]
 
   function renderSuggestion(suggestion) {
