@@ -7,26 +7,26 @@ search:
 
 <div class="itsd-intro" markdown>
 
-## Service knowledge, ready when you need it
+## Your IT Service Delivery knowledge base
 
-Find current IT Service Delivery guidance, operational notes, and supporting documents in one place.
+Find shared documents, operational guidance, and service notes in one place.
 
 </div>
 
 <div class="grid cards itsd-actions" markdown>
 
-- :material-upload-outline: **Upload a document**
+- :material-magnify: **Find a document**
 
-    Add a Markdown file, PDF, image, or supporting document to the library.
+    Browse the shared library or use the search box to locate what you need.
 
-    [:octicons-arrow-right-24: Upload documents](upload-documents.md)
+    [:octicons-arrow-right-24: Open documents](uploaded-documents.md)
 
-- :material-folder-open-outline: **Browse the library**
+- :material-upload-outline: **Add a document**
 
-    Open the documents currently available to the ITSD team.
+    Upload a new Markdown file, PDF, image, or supporting document.
 
-    [:octicons-arrow-right-24: View uploaded documents](uploaded-documents.md)
+    [:octicons-arrow-right-24: Upload a document](upload-documents.md)
 
 </div>
 
-Use the search box above to find information across the library.
+Use the **Documents** section in the sidebar to browse or add to the library.
