@@ -83,10 +83,12 @@ extra_javascript:
   - javascripts/document-search.js
   - javascripts/global-search.js
   - javascripts/change-log-link.js
+  - javascripts/support-suggestions.js
 
 nav:
   - Home: index.md
   - Documents: uploaded-documents.md
+  - Support: support.md
   - About: about.md
   - Contact: contact.md
   
