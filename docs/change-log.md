@@ -23,7 +23,14 @@ This page records the iterative development of the ITSD Documentation site.
 - Enabled Material search suggestions, highlighting, and shareable queries.
 - Built a dedicated global search-results page initiated from the header search field.
 - Added title-weighted ranking, excerpts, best-match identification, and a reading pane for selected Markdown documents.
+- Added dependency-free fuzzy title matching with punctuation normalization and typo tolerance for GitHub Pages-compatible search.
 - Verified the PDF and Markdown result links return successfully on the deployed site.
+
+### Navigation and Search Validation
+
+- Moved page navigation into a horizontal top bar and positioned the Table of Contents on the right without a backend dependency.
+- Verified that a misspelled query such as `deescalted` identifies **De-escalated Tickets** as the best match and loads it in the main reading pane.
+- User acknowledgment: "You badass."
 
 ### User Experience
 
