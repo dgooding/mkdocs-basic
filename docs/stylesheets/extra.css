@@ -371,6 +371,10 @@
   font-size: 1.25rem;
 }
 
+.itsd-search-page .md-search {
+  display: none;
+}
+
 .itsd-status {
   background: #e8f6f3;
   border-left: 0.25rem solid var(--itsd-teal);

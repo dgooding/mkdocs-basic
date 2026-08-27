@@ -8,6 +8,7 @@ document$.subscribe(function () {
   const reader = document.querySelector("[data-document-search-reader]")
   let searchDocuments = []
 
+  document.body.classList.add("itsd-search-page")
   const materialSearchToggle = document.querySelector('[data-md-toggle="search"]')
   if (materialSearchToggle) {
     materialSearchToggle.checked = false
