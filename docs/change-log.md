@@ -35,10 +35,58 @@ This page records the iterative development of the ITSD Documentation site.
 ### Support and Suggestions
 
 - Added a GitHub Pages-compatible Support page for shared feature suggestions backed by labeled GitHub Issues.
-- Added a repository Issue template for new suggestions and a positive `+1` voting link that opens each suggestion on GitHub.
+- Added a repository Issue template for new suggestions and a browser-local Upvote control with persistent counts.
 - Verified the live page loads the shared issue list and displays a clear empty state when no suggestions are open.
 - Added four browser-local example suggestions for testing, first-name attribution, immediate posting, and plain-text export; removed the voting controls.
 - Added category-specific expandable dropdown sections and corrected rendering so examples remain visible alongside posted suggestions.
+- Expanded the example set to 24 entries, then added ten more examples for a total of 34 built-in test suggestions.
+- Removed the shared-suggestions link, reduced the export control to a quiet utility action, and renamed the submit action to **Into the Void it goes!**.
+- Replaced the first-name field with a required category selector and corrected the GitHub Issue template front matter.
+- Changed every category section to start collapsed when the Support page is opened.
+
+## Detailed Recent Timeline
+
+The following record covers every repository change from the Support-page implementation through the final collapsed-category and button-label updates. Times are local project timestamps in Mountain Daylight Time (`-0600`) on 2026-08-26 unless noted otherwise. Automatic documentation commits were produced by the saved-file publishing watcher; the GitHub Issue-template repair was committed manually because the watcher intentionally tracks `docs` and `mkdocs.yml` only.
+
+| Time | Commit | Detailed technical change | Files |
+| --- | --- | --- | --- |
+| 21:04:58 | `d905bd1` | Added the first Support-page client script. It loaded open GitHub Issues labeled `feature-request`, rendered suggestion titles and metadata, and handled the empty/error states in the browser. | `docs/javascripts/support-suggestions.js` |
+| 21:05:09 | `ca9fb59` | Added the initial Support page to the top navigation and introduced the first suggestion-list styling, including the shared list container, row layout, and vote presentation. | `mkdocs.yml`, `docs/stylesheets/extra.css` |
+| 21:05:34 | `d0a4599` | Documented the initial Support page, GitHub Issue integration, and shared suggestion workflow in this Change Log. | `docs/change-log.md` |
+| 21:06:58 | `77bc412` | Added the GitHub feature-request Issue template so new submissions use the `feature-request` label and a consistent suggestion structure. | `.github/ISSUE_TEMPLATE/feature_request.md` |
+| 21:11:19 | `7746a73` | Added no-login browser posting with first-name and suggestion fields, local persistence through `localStorage`, an export-to-text action, and four initial example suggestions. | `docs/support.md`, `docs/javascripts/support-suggestions.js`, `docs/stylesheets/extra.css` |
+| 21:11:56 | `c33d2eb` | Corrected the Support script’s page-level bindings so the form and export control could be found outside the results section. | `docs/javascripts/support-suggestions.js` |
+| 21:15:47 | `53232f1` | Removed the first-name requirement from the Support form and introduced the category field in the page structure. | `docs/support.md`, `docs/javascripts/support-suggestions.js` |
+| 21:15:54 | `0d41f1c` | Added category metadata to stored local suggestions and shared Issue results so category labels could be displayed consistently. | `docs/javascripts/support-suggestions.js` |
+| 21:16:17 | `94d8fc2` | Updated Support-page wording and Change Log content to describe category-based posting and the current local-storage behavior. | `docs/support.md`, `docs/change-log.md` |
+| 21:17:16 | `c373133` | Added ten more example suggestion records, bringing the built-in test set to 14. | `docs/javascripts/support-suggestions.js` |
+| 21:19:22 | `60db0cc` | Added persistent Upvote controls with stable suggestion IDs and browser-local vote storage. Upvotes increment immediately and are restored after refresh. | `docs/support.md`, `docs/javascripts/support-suggestions.js` |
+| 21:19:28 | `9a0167e` | Added stable IDs to the earlier example records so every example could maintain an independent stored vote count. | `docs/javascripts/support-suggestions.js` |
+| 21:20:33 | `7db6756` | Added the missing tenth example record after live testing identified that the prior expansion contained only nine new entries. | `docs/javascripts/support-suggestions.js` |
+| 21:31:02 | `e1119ad` | Added nine additional examples, distributed categories across the sample data, and changed the list renderer to group suggestions into native expandable category sections. | `docs/support.md`, `docs/javascripts/support-suggestions.js` |
+| 21:32:11 | `e390888` | Applied styling to category dropdown summaries, open-state borders, hover treatment, and grouped suggestion sections. | `docs/stylesheets/extra.css` |
+| 21:32:36 | `bf0b902` | Repaired the GitHub Issue template’s malformed `title` front-matter key and published the fix manually after the watcher skipped `.github` files. | `.github/ISSUE_TEMPLATE/feature_request.md` |
+| 21:35:38 | `2265cf8` | Added the final ten examples for the current 24-item test set, added local upvote rendering, and preserved export behavior for example data. | `docs/javascripts/support-suggestions.js` |
+| 21:35:44 | `6537098` | Refined the categorized Support-page layout and form presentation after live browser review. | `docs/stylesheets/extra.css` |
+| 21:37:50 | `e6fe1fe` | Corrected the example count and related Support-page status text after physical browser testing. | `docs/javascripts/support-suggestions.js` |
+| 21:38:13 | `f61d202` | Recorded the categorized dropdown and example-retention correction in the Change Log. | `docs/change-log.md` |
+| 21:41:30 | `a65bd85` | Removed the visible GitHub shared-suggestions link from the Support page and introduced the quieter export utility class. | `docs/support.md`, `docs/stylesheets/extra.css` |
+| 21:42:49 | `bc4fa46` | Reduced export prominence further by removing filled styling, borders, shadows, and strong typography while retaining its download behavior. | `docs/stylesheets/extra.css` |
+| 21:46:01 | `65d9fe8` | Renamed the export control to `Into the Void it goes!` during the first label adjustment. | `docs/support.md` |
+| 21:47:30 | `a850d7b` | Corrected the label placement: restored `Export suggestions` to the quiet export control. | `docs/support.md` |
+| 21:48:47 | `1654f28` | Removed the first category section’s default-open behavior so all category dropdowns start collapsed on every visit. | `docs/javascripts/support-suggestions.js` |
+
+### Recent Validation Evidence
+
+- `node --check docs/javascripts/support-suggestions.js` passed after the Support script changes.
+- `mkdocs build --strict` passed after each functional and styling change in the timeline.
+- The live Support page was opened repeatedly through local static preview servers and returned successfully.
+- The browser accepted a no-login suggestion, displayed it under its selected category, and preserved the existing examples alongside it.
+- The browser incremented an Upvote count from `0` to `1` and preserved the count after refresh.
+- A clean browser origin displayed all 24 built-in examples in category sections; later local posting produced 25 total entries without removing the examples.
+- The browser confirmed the final primary submit label is `Into the Void it goes!` and the quiet utility label is `Export suggestions`.
+- The browser confirmed all category dropdowns are collapsed on initial page load.
+- GitHub Issues and the raw Issue-template URL returned HTTP 200 during integration checks.
 
 ### User Experience
 
