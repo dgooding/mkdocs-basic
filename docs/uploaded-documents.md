@@ -6,6 +6,8 @@
 
 Find documents by name, file type, or category. Select a document title to open it.
 
+This library is hosted on GitHub. Uploading, managing, or deleting files may require you to sign in to GitHub and have the necessary permissions.
+
 </div>
 
 <div class="itsd-library-actions">
