@@ -79,9 +79,7 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Documents:
-      - Upload a Document: upload-documents.md
-      - Uploaded Documents: uploaded-documents.md
+  - Documents: uploaded-documents.md
   - About: about.md
   - Contact: contact.md
   

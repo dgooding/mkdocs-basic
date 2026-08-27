@@ -1,5 +1,7 @@
 # Uploaded Documents
 
+[:material-upload-outline: Upload a document](upload-documents.md){ .md-button .md-button--primary }
+
 <div class="itsd-page-intro" markdown>
 
 ## Shared ITSD library
@@ -23,5 +25,3 @@ Open a document below, or add another file through the upload page.
 	[:octicons-arrow-right-24: Open PDF](Guide%20-%20HCL%20Notes.pdf)
 
 </div>
-
-[:material-upload-outline: Upload another document](upload-documents.md){ .md-button }

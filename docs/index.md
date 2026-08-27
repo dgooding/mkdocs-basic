@@ -29,4 +29,4 @@ Find shared documents, operational guidance, and service notes in one place.
 
 </div>
 
-Use the **Documents** section in the sidebar to browse or add to the library.
+Use **Documents** in the sidebar to browse the library or add a file.
