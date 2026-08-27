@@ -27,7 +27,7 @@ Register-ObjectEvent -InputObject $watcher -EventName Renamed -SourceIdentifier 
 while ($true) {
     $event = Wait-Event
     $changedPath = $event.SourceEventArgs.FullPath
-    $relativePath = [System.IO.Path]::GetRelativePath($projectRoot, $changedPath)
+    $relativePath = $changedPath.Substring($projectRoot.Length).TrimStart("\\")
 
     if ($relativePath -eq "mkdocs.yml" -or $relativePath -like "docs\*") {
         Publish-DocumentationChanges
