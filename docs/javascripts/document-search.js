@@ -120,10 +120,9 @@ document$.subscribe(function () {
       const library = data[1]
       const libraryByUrl = new Map(library.map(function (item) { return [item.url, item] }))
       searchDocuments = index
-        .filter(function (item) { return libraryByUrl.has(decodeURIComponent(item.location.split("#")[0])) })
         .map(function (item) {
           const libraryItem = libraryByUrl.get(decodeURIComponent(item.location.split("#")[0]))
-          return { title: item.title, text: item.text, type: libraryItem.type, location: item.location }
+          return { title: item.title, text: item.text, type: libraryItem ? libraryItem.type : "Markdown", location: item.location }
         })
       library.filter(function (item) { return item.type === "PDF" }).forEach(function (item) {
         searchDocuments.push({ title: item.name, text: "", type: item.type, location: encodeURI(item.url) })
