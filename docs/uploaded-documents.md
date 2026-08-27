@@ -6,22 +6,36 @@
 
 ## Shared ITSD library
 
-Open a document below, or add another file through the upload page.
+Search, filter, and open documents in the shared ITSD library.
 
 </div>
 
-<div class="grid cards itsd-library" markdown>
-
-- :material-file-document-outline: **De-escalated Tickets**
-
-	Markdown document
-
-	[:octicons-arrow-right-24: Open document](De-escalated%20Tickets_converted.md)
-
-- :material-file-pdf-box: **Guide - HCL Notes**
-
-	PDF document
-
-	[:octicons-arrow-right-24: Open PDF](Guide%20-%20HCL%20Notes.pdf)
-
+<div class="itsd-library-controls" data-document-library-controls>
+	<input id="document-library-search" type="search" placeholder="Search documents" aria-label="Search documents">
+	<div class="itsd-library-filters" role="group" aria-label="Filter documents by type">
+		<button type="button" data-document-type="all" aria-pressed="true">All</button>
+		<button type="button" data-document-type="markdown" aria-pressed="false">Markdown</button>
+		<button type="button" data-document-type="pdf" aria-pressed="false">PDF</button>
+	</div>
+	<label for="document-library-sort">Sort</label>
+	<select id="document-library-sort">
+		<option value="name">Name</option>
+		<option value="type">Type</option>
+	</select>
 </div>
+
+<div class="itsd-library-summary" data-document-library-summary></div>
+
+<div class="itsd-library-table-wrap">
+	<table class="itsd-library-table">
+		<thead>
+			<tr>
+				<th scope="col">Document</th>
+				<th scope="col">Type</th>
+			</tr>
+		</thead>
+		<tbody data-document-library-results></tbody>
+	</table>
+</div>
+
+<nav class="itsd-library-pagination" aria-label="Document pages" data-document-library-pagination></nav>

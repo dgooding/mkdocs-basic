@@ -77,6 +77,12 @@ copyright: Copyright &copy; 2026 IT Service Delivery
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/document-library.js
+
+hooks:
+  - hooks/document_library.py
+
 nav:
   - Home: index.md
   - Documents: uploaded-documents.md
