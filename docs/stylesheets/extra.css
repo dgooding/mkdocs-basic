@@ -9,6 +9,23 @@
   background: var(--itsd-navy);
 }
 
+.itsd-profile-link {
+  align-items: center;
+  color: #d8f2ed;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-left: 0.35rem;
+  min-height: 2.2rem;
+  padding: 0 0.5rem;
+  text-decoration: none;
+}
+
+.itsd-profile-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .md-tabs {
   background: var(--itsd-navy);
 }
@@ -402,6 +419,30 @@
   padding: 0.65rem 0.85rem;
 }
 
+.itsd-workflow {
+  border-left: 1px solid #c9dce4;
+  margin: 1.5rem 0;
+  max-width: 46rem;
+  padding-left: 1.4rem;
+}
+
+.itsd-workflow h3 {
+  color: var(--itsd-navy);
+  font-size: 1rem;
+  margin: 1.2rem 0 0.2rem;
+}
+
+.itsd-workflow h3::before {
+  background: var(--itsd-teal);
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  height: 0.5rem;
+  margin-left: -1.68rem;
+  margin-right: 1.18rem;
+  width: 0.5rem;
+}
+
 .md-typeset .md-button--primary {
   background-color: var(--itsd-teal);
   border-color: var(--itsd-teal);
@@ -457,6 +498,14 @@
 
 [data-md-color-scheme="slate"] .itsd-status {
   background: #173c39;
+}
+
+[data-md-color-scheme="slate"] .itsd-workflow {
+  border-color: #2c5669;
+}
+
+[data-md-color-scheme="slate"] .itsd-workflow h3 {
+  color: #b8e4f5;
 }
 
 [data-md-color-scheme="slate"] .itsd-library-controls,
