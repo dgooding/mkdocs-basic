@@ -1,5 +1,12 @@
 [
   {
+    "name": "Change Log",
+    "path": "change-log.md",
+    "url": "change-log.html",
+    "type": "Markdown",
+    "typeKey": "md"
+  },
+  {
     "name": "De-escalated Tickets",
     "path": "De-escalated Tickets_converted.md",
     "url": "De-escalated Tickets_converted.html",
