@@ -3,8 +3,6 @@ document$.subscribe(function () {
   if (!searchInput || searchInput.dataset.resultsPageBound || document.querySelector("[data-document-search-view]")) return
 
   searchInput.dataset.resultsPageBound = "true"
-  const searchContainer = searchInput.closest(".md-search")
-  let navigationTimer
 
   function openSearchResults() {
     const value = searchInput.value.trim()
@@ -14,17 +12,10 @@ document$.subscribe(function () {
     location.assign(url)
   }
 
-  searchInput.addEventListener("input", function () {
-    if (searchContainer) searchContainer.classList.toggle("itsd-search-routing", Boolean(searchInput.value.trim()))
-    clearTimeout(navigationTimer)
-    navigationTimer = setTimeout(openSearchResults, 500)
-  })
-
   searchInput.addEventListener("keydown", function (event) {
     if (event.key !== "Enter" || !searchInput.value.trim()) return
     event.preventDefault()
     event.stopImmediatePropagation()
-    clearTimeout(navigationTimer)
     openSearchResults()
   }, true)
 })
