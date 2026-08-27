@@ -1,10 +1,10 @@
-# Support and Suggestions
+# Support and Feedback
 
 <div class="itsd-page-intro" markdown>
 
-## Help shape the documentation
+## Help improve the documentation
 
-Suggest a feature, improvement, or piece of guidance you would like to see here. Suggestions are stored in this browser and appear immediately on this page.
+Share a feature request, report a problem, or suggest guidance that would make the ITSD documentation more useful. Your submission is saved in this browser and appears on this page immediately.
 
 </div>
 
@@ -13,7 +13,7 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 </div>
 
 <form class="itsd-suggestion-form" data-suggestion-form>
-  <label for="suggestion-category">Category</label>
+  <label for="suggestion-category">Feedback type</label>
   <select id="suggestion-category" name="category" required>
     <option value="">Choose a category</option>
     <option>Issue</option>
@@ -24,9 +24,9 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
     <option>Accessibility</option>
     <option>Question</option>
   </select>
-  <label for="suggestion-text">Suggestion or problem</label>
+  <label for="suggestion-text">What should we improve?</label>
   <textarea id="suggestion-text" name="text" maxlength="500" required></textarea>
-  <button class="md-button md-button--primary" type="submit">Into the Void it goes!</button>
+  <button class="md-button md-button--primary" type="submit">Submit feedback</button>
 </form>
 
 <section class="itsd-suggestions" data-suggestions-view>
@@ -66,6 +66,6 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 
 <div class="itsd-status" markdown>
 
-New suggestions stay in the Recent suggestions list for four days before moving into their category. Suggestions, votes, and status changes are stored in this browser so the site remains fully static and GitHub Pages compatible. Each browser can upvote a suggestion once. This is a local duplicate-vote safeguard, not customer-level identity enforcement; a true one-vote-per-customer rule requires sign-in and a server-side vote store.
+New submissions appear in **Recent suggestions** for four days before moving into their category. Suggestions, votes, and status changes are stored in this browser so the site remains fully static and GitHub Pages compatible. Each browser can upvote a suggestion once. This prevents accidental repeat votes in one browser, but it is not customer-level identity enforcement; that requires sign-in and a server-side vote store.
 
 </div>
