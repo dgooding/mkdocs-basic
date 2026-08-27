@@ -8,23 +8,34 @@ document$.subscribe(function () {
   const exportButton = document.querySelector("[data-suggestion-export]")
   const endpoint = "https://api.github.com/repos/dgooding/mkdocs-basic/issues?labels=feature-request&state=open&per_page=50"
   const localStorageKey = "itsd-suggestions"
+  const votesStorageKey = "itsd-suggestion-votes"
   let sharedIssues = []
   let localSuggestions = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
+  let votes = JSON.parse(localStorage.getItem(votesStorageKey) || "{}")
   const exampleSuggestions = [
-    { title: "Add a searchable FAQ for common support questions", details: "Example suggestion | Shared support idea" },
-    { title: "Add a quick reference for escalation paths", details: "Example suggestion | Shared support idea" },
-    { title: "Add document owners and review dates", details: "Example suggestion | Shared support idea" },
-    { title: "Add a printable troubleshooting checklist", details: "Example suggestion | Shared support idea" },
-    { title: "Add service hours and response expectations", details: "Example suggestion | Shared support idea" },
-    { title: "Add a guide for reporting recurring incidents", details: "Example suggestion | Shared support idea" },
-    { title: "Add a glossary of common ITSD terms", details: "Example suggestion | Shared support idea" },
-    { title: "Add version history to every document", details: "Example suggestion | Shared support idea" },
-    { title: "Add a checklist for new team members", details: "Example suggestion | Shared support idea" },
-    { title: "Add printable quick-start guides", details: "Example suggestion | Shared support idea" },
-    { title: "Add examples of well-written ticket notes", details: "Example suggestion | Shared support idea" },
-    { title: "Add a page for known service issues", details: "Example suggestion | Shared support idea" },
-    { title: "Add document categories and filters", details: "Example suggestion | Shared support idea" },
-    { title: "Add a monthly documentation update summary", details: "Example suggestion | Shared support idea" },
+    { id: "example-faq", title: "Add a searchable FAQ for common support questions", details: "Example suggestion | Shared support idea" },
+    { id: "example-escalation", title: "Add a quick reference for escalation paths", details: "Example suggestion | Shared support idea" },
+    { id: "example-owners", title: "Add document owners and review dates", details: "Example suggestion | Shared support idea" },
+    { id: "example-checklist", title: "Add a printable troubleshooting checklist", details: "Example suggestion | Shared support idea" },
+    { id: "example-hours", title: "Add service hours and response expectations", details: "Example suggestion | Shared support idea" },
+    { id: "example-recurring", title: "Add a guide for reporting recurring incidents", details: "Example suggestion | Shared support idea" },
+    { id: "example-glossary", title: "Add a glossary of common ITSD terms", details: "Example suggestion | Shared support idea" },
+    { id: "example-history", title: "Add version history to every document", details: "Example suggestion | Shared support idea" },
+    { id: "example-onboarding", title: "Add a checklist for new team members", details: "Example suggestion | Shared support idea" },
+    { id: "example-quick-start", title: "Add printable quick-start guides", details: "Example suggestion | Shared support idea" },
+    { id: "example-notes", title: "Add examples of well-written ticket notes", details: "Example suggestion | Shared support idea" },
+    { id: "example-known-issues", title: "Add a page for known service issues", details: "Example suggestion | Shared support idea" },
+    { id: "example-categories", title: "Add document categories and filters", details: "Example suggestion | Shared support idea" },
+    { id: "example-summary", title: "Add a monthly documentation update summary", details: "Example suggestion | Shared support idea" },
+    { id: "example-status", title: "Add service status updates to the home page", details: "Example suggestion | Shared support idea" },
+    { id: "example-templates", title: "Add reusable ticket response templates", details: "Example suggestion | Shared support idea" },
+    { id: "example-search-tips", title: "Add search tips for finding older documents", details: "Example suggestion | Shared support idea" },
+    { id: "example-contact", title: "Add contact details for specialist support teams", details: "Example suggestion | Shared support idea" },
+    { id: "example-ownership", title: "Add a way to flag outdated documentation", details: "Example suggestion | Shared support idea" },
+    { id: "example-print", title: "Add printer-friendly versions of key procedures", details: "Example suggestion | Shared support idea" },
+    { id: "example-attachments", title: "Add related-document links to each procedure", details: "Example suggestion | Shared support idea" },
+    { id: "example-feedback", title: "Add a simple feedback prompt to document pages", details: "Example suggestion | Shared support idea" },
+    { id: "example-calendar", title: "Add a calendar of planned maintenance windows", details: "Example suggestion | Shared support idea" },
   ]
 
   function renderSuggestion(suggestion) {
@@ -50,7 +61,17 @@ document$.subscribe(function () {
     details.textContent = suggestion.details
     content.append(title, details)
 
-    item.append(content)
+    const vote = document.createElement("button")
+    vote.className = "itsd-suggestion-vote"
+    vote.type = "button"
+    vote.setAttribute("aria-label", "Upvote " + suggestion.title)
+    vote.innerHTML = "<strong>Upvote</strong><span>" + (votes[suggestion.id] || 0) + "</span>"
+    vote.addEventListener("click", function () {
+      votes[suggestion.id] = (votes[suggestion.id] || 0) + 1
+      localStorage.setItem(votesStorageKey, JSON.stringify(votes))
+      render()
+    })
+    item.append(content, vote)
     return item
   }
 
@@ -79,6 +100,7 @@ document$.subscribe(function () {
     event.preventDefault()
     const data = new FormData(form)
     localSuggestions.unshift({
+      id: "local-" + Date.now(),
       title: data.get("text"),
       details: "Suggested by " + data.get("name") + " | Local browser suggestion",
       created: new Date().toISOString(),
@@ -96,7 +118,7 @@ document$.subscribe(function () {
     })
     .then(function (issues) {
       sharedIssues = issues.map(function (issue) {
-        return { title: issue.title, details: "Suggested by " + issue.user.login + " | " + issue.comments + " comments", url: issue.html_url }
+        return { id: "issue-" + issue.number, title: issue.title, details: "Suggested by " + issue.user.login + " | " + issue.comments + " comments", url: issue.html_url }
       })
       render()
     })

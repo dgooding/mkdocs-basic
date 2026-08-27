@@ -33,6 +33,6 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 
 <div class="itsd-status" markdown>
 
-New suggestions typed here appear immediately in this browser. Shared suggestions can still be reviewed through GitHub.
+New suggestions typed here appear immediately in this browser. Upvotes are stored in this browser so they remain after a refresh. Shared suggestions can still be reviewed through GitHub.
 
 </div>
