@@ -2,7 +2,7 @@
 name: Feature suggestion
 about: Suggest a feature or improvement for the ITSD Documentation site
 title: ""
-labels: feature-request
+labels: enhancement
 assignees: ""
 ---
 
