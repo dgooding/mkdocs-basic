@@ -5,8 +5,6 @@ tags:
 
 # Contact and Support
 
-I only added these pages cause 2001 highschool told me too.
-
 <div class="itsd-page-intro" markdown>
 
 ## Get the right support
@@ -20,7 +18,5 @@ Use your established IT service desk or team communication channel for service r
 **Improve this site**
 
 Found an error or missing detail? Select the edit icon at the top of any page to propose a change through GitHub.
-
-<small>[This site doesn't work but a one shot Google AI Flash site for MkDocs](https://mkdocs-site-688900746393.us-west2.run.app/)</small>
 
 </div>
