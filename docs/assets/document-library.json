@@ -1,5 +1,12 @@
 [
   {
+    "name": "Change Log",
+    "path": "change-log.md",
+    "url": "change-log.html",
+    "type": "Markdown",
+    "typeKey": "md"
+  },
+  {
     "name": "De-escalated Tickets",
     "path": "De-escalated Tickets_converted.md",
     "url": "De-escalated Tickets_converted.html",
@@ -12,5 +19,19 @@
     "url": "Guide - HCL Notes.pdf",
     "type": "PDF",
     "typeKey": "pdf"
+  },
+  {
+    "name": "Search Results",
+    "path": "search.md",
+    "url": "search.html",
+    "type": "Markdown",
+    "typeKey": "md"
+  },
+  {
+    "name": "Support and Suggestions",
+    "path": "support.md",
+    "url": "support.html",
+    "type": "Markdown",
+    "typeKey": "md"
   }
 ]
