@@ -154,17 +154,22 @@
 }
 
 .itsd-export-button {
-  border-color: transparent;
-  color: #5b6f7b;
-  font-size: 0.8rem;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #78909c;
+  font-size: 0.72rem;
   font-weight: 400;
-  padding: 0.25rem 0.4rem;
+  min-height: 0;
+  opacity: 0.75;
+  padding: 0.1rem 0;
 }
 
 .itsd-export-button:hover {
-  background: #e6f2f5;
-  border-color: #d8e7ec;
+  background: transparent !important;
+  border-color: transparent !important;
   color: var(--itsd-navy);
+  opacity: 1;
 }
 
 .itsd-suggestion-form {
