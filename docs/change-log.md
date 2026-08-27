@@ -39,7 +39,7 @@ This page records the iterative development of the ITSD Documentation site.
 - Verified the live page loads the shared issue list and displays a clear empty state when no suggestions are open.
 - Added four browser-local example suggestions for testing, first-name attribution, immediate posting, and plain-text export; removed the voting controls.
 - Added category-specific expandable dropdown sections and corrected rendering so examples remain visible alongside posted suggestions.
-- Expanded the example set to 24 entries, then added ten more examples for a total of 34 built-in test suggestions.
+- Expanded the example set to 24 built-in suggestions and preserved that set while local browser suggestions were added.
 - Removed the shared-suggestions link, reduced the export control to a quiet utility action, and renamed the submit action to **Into the Void it goes!**.
 - Replaced the first-name field with a required category selector and corrected the GitHub Issue template front matter.
 - Changed every category section to start collapsed when the Support page is opened.
@@ -75,6 +75,39 @@ The following record covers every repository change from the Support-page implem
 | 21:46:01 | `65d9fe8` | Renamed the export control to `Into the Void it goes!` during the first label adjustment. | `docs/support.md` |
 | 21:47:30 | `a850d7b` | Corrected the label placement: restored `Export suggestions` to the quiet export control. | `docs/support.md` |
 | 21:48:47 | `1654f28` | Removed the first category section’s default-open behavior so all category dropdowns start collapsed on every visit. | `docs/javascripts/support-suggestions.js` |
+
+## Conversation Iteration Timeline
+
+This section records the work completed after the initial Support-page timeline, including the later requests and the corrections made during browser review. These are technical changes only; local test suggestions created during browser validation are not part of the repository history.
+
+| Time | Commit | Detailed technical change | Files |
+| --- | --- | --- | --- |
+| 21:51-21:58 | `d117dd0`, `1c891d0`, `4681e40` | Tightened the Support-page visual hierarchy: quieted the export utility, gave the form a white surface with a teal accent and subtle depth, and reduced the submit action from a full-width button to a content-sized control. | `docs/stylesheets/extra.css` |
+| 22:02 | `4aa3ec3`, `8661893`, `f023135`, `7772a25`, `89164c0` | Made suggestion status visible, persisted pending/complete state independently, added a date picker, then expanded the filter row with status, category, date, keyword search, and Clear filters. | `docs/support.md`, `docs/javascripts/support-suggestions.js`, `docs/stylesheets/extra.css` |
+| 22:05-22:06 | `7d15bcc` | Displayed the posting date and time for local suggestions and the creation date for GitHub Issue records when available. | `docs/javascripts/support-suggestions.js` |
+| 22:08 | `f9b8916` | Temporarily added a prefilled GitHub Issue submission path to work with GitHub Pages hosting without exposing a token. | `docs/support.md`, `docs/javascripts/support-suggestions.js`, `docs/stylesheets/extra.css` |
+| 22:09 | `1305d9d` | Removed the GitHub submission experiment at the request of the project owner, returning the Support page to a fully static browser-local workflow. | `docs/support.md`, `docs/javascripts/support-suggestions.js`, `docs/stylesheets/extra.css` |
+| 22:12 | `d2daf0c` | Added a short self-contained shredder sound to the Into the Void it goes! submit action using the Web Audio API, with no external sound asset or network dependency. | `docs/javascripts/support-suggestions.js` |
+| 22:15 | `1e3a05e` | Preserved open category dropdowns while rerendering after an upvote, preventing the user’s current section from closing. | `docs/javascripts/support-suggestions.js` |
+| 22:18-22:19 | `d570717`, `c099fe0` | Split suggestions by age: dated items from the last four days stay in a Recent suggestions list, while older items and undated examples remain in category dropdowns. Added a discreet explanation below the list. | `docs/javascripts/support-suggestions.js`, `docs/stylesheets/extra.css`, `docs/support.md` |
+| 22:21-22:26 | `94dd0b1`, `c061aa2`, `a2feb4a`, `c61def5`, `b894f32`, `171eaa6` | Prototyped expandable per-suggestion summaries, fixed the resulting Material disclosure styling and state-preservation issues during browser review, then reverted the feature completely when it did not fit the desired page behavior. | `docs/javascripts/support-suggestions.js`, `docs/stylesheets/extra.css` |
+| 22:31 | `b6f1cdb`, `eb1258b` | Reworked the About page into an ITSD operating brief with a specific mission, usage routes, content boundaries, documentation standards, and maintenance guidance. Fixed nested Markdown parsing in the two-column brief. | `docs/about.md`, `docs/stylesheets/extra.css` |
+| 22:34-22:35 | `0c4d5df`, `1f47a3d` | Added per-document Delete actions that open the authenticated GitHub file editor, plus a confirmed Delete all documents action that opens the repository docs folder for review and batch commits. | `docs/uploaded-documents.md`, `docs/javascripts/document-library.js`, `docs/stylesheets/extra.css` |
+| 22:38-22:39 | `a9e3e99`, `4a5c8e9` | Rebuilt the home page as a functional launchpad with a real search form, document/upload/support actions, escalation and Change Log routes, and practical ITSD guidance. Corrected card indentation so Markdown links render normally. | `docs/index.md`, `docs/stylesheets/extra.css` |
+| 22:42 | `f31acfc`, `11c0b5c` | Added the global search panel to the top of every non-search content page, kept the home search from duplicating it, and added responsive layout rules. | `docs/javascripts/global-search.js`, `docs/stylesheets/extra.css` |
+| 22:45 | `1c329ee` | Expanded the dedicated search results workspace across the available page width so the selected document reader uses the remaining viewport instead of stopping at the old content-grid limit. | `docs/stylesheets/extra.css` |
+| 22:46 | `8b89050` | Restricted search results to documents present in `document-library.json`, preventing Home, About, and other non-library pages from appearing in uploaded-document searches. | `docs/javascripts/document-search.js` |
+
+### Later Validation Evidence
+
+- Repeated `mkdocs build --strict` checks passed through the full iteration sequence.
+- `node --check` passed for the Support, document-library, global-search, and document-search scripts after their respective changes.
+- Browser testing confirmed pending/complete filtering, date filtering, Clear filters, local timestamp display, shredder submission behavior, and open-category preservation after upvoting.
+- Browser testing confirmed the four-day split: recent local suggestions appeared at the top and older/undated records remained categorized.
+- Browser testing confirmed the expandable-row experiment was fully removed and ordinary suggestion rows were restored.
+- Browser testing confirmed all document Delete links point to the matching GitHub editor paths and that the bulk action points to the repository docs folder.
+- Browser testing confirmed home-page search routes to `search.html?q=...` and the global content-page search uses the same results workflow.
+- Browser testing confirmed the selected search document fills the available reader width and that searches return only document-library entries.
 
 ### Recent Validation Evidence
 
