@@ -715,15 +715,27 @@
 }
 
 .itsd-library-controls {
-  align-items: center;
+  align-items: end;
   background: rgb(255 255 255 / 0.72);
   border: 1px solid #d8e7ec;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 0.65rem;
-  margin: 1.5rem 0 0.75rem;
+  grid-template-columns: minmax(13rem, 2fr) auto minmax(10rem, 1fr) minmax(9rem, 0.8fr);
+  margin: 1rem 0 0.75rem;
   max-width: 52rem;
   padding: 0.7rem;
+}
+
+.itsd-library-control {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.itsd-library-type-control {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .itsd-library-controls input,
@@ -737,13 +749,19 @@
 }
 
 .itsd-library-controls input {
-  flex: 1 1 15rem;
+  width: 100%;
 }
 
-.itsd-library-controls label {
+.itsd-library-controls label,
+.itsd-library-controls legend {
   color: #5b6f7b;
   font-size: 0.82rem;
   font-weight: 700;
+}
+
+.itsd-library-controls legend {
+  margin-bottom: 0.3rem;
+  padding: 0;
 }
 
 .itsd-library-filters {
@@ -779,18 +797,11 @@
 }
 
 .itsd-library-actions {
-  margin: 0 0 0.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
   max-width: 52rem;
-  text-align: right;
-}
-
-.itsd-library-manage {
-  color: #b3261e;
-  font-size: 0.8rem;
-}
-
-.itsd-library-manage:hover {
-  color: #8c1d18;
 }
 
 .itsd-library-table-wrap {
@@ -837,7 +848,15 @@
 .itsd-library-table td:last-child {
   color: #5b6f7b;
   font-size: 0.85rem;
-  width: 7rem;
+  white-space: nowrap;
+  width: 9rem;
+}
+
+.itsd-library-table .itsd-library-empty {
+  color: #5b6f7b;
+  font-weight: 400;
+  padding: 1.5rem 0.85rem;
+  text-align: center;
 }
 
 .itsd-document-delete {
@@ -853,6 +872,18 @@
   display: flex;
   gap: 0.25rem;
   margin-top: 1rem;
+}
+
+@media screen and (max-width: 60rem) {
+  .itsd-library-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 35rem) {
+  .itsd-library-controls {
+    grid-template-columns: 1fr;
+  }
 }
 
 .itsd-library-view-toggle {
