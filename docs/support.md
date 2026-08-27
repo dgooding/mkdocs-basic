@@ -9,7 +9,7 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 </div>
 
 <div class="itsd-suggestion-actions">
-  <button class="md-button itsd-export-button" type="button" data-suggestion-export>Export suggestions</button>
+  <button class="md-button itsd-export-button" type="button" data-suggestion-export>Into the Void it goes!</button>
 </div>
 
 <form class="itsd-suggestion-form" data-suggestion-form>
