@@ -9,7 +9,7 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 </div>
 
 <div class="itsd-suggestion-actions">
-  <button class="md-button itsd-export-button" type="button" data-suggestion-export>Into the Void it goes!</button>
+  <button class="md-button itsd-export-button" type="button" data-suggestion-export>Export suggestions</button>
 </div>
 
 <form class="itsd-suggestion-form" data-suggestion-form>
@@ -26,7 +26,7 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
   </select>
   <label for="suggestion-text">Suggestion or problem</label>
   <textarea id="suggestion-text" name="text" maxlength="500" required></textarea>
-  <button class="md-button md-button--primary" type="submit">Post suggestion</button>
+  <button class="md-button md-button--primary" type="submit">Into the Void it goes!</button>
 </form>
 
 <section class="itsd-suggestions" data-suggestions-view>
