@@ -8,12 +8,52 @@
     "category": "Technical Documentation"
   },
   {
+    "name": "Guide - Active Directory",
+    "path": "Guide - Active Directory.pdf",
+    "url": "Guide - Active Directory.pdf",
+    "type": "PDF",
+    "typeKey": "pdf",
+    "category": "Reference"
+  },
+  {
+    "name": "Guide - Basic Troubleshooting",
+    "path": "Guide - Basic Troubleshooting.pdf",
+    "url": "Guide - Basic Troubleshooting.pdf",
+    "type": "PDF",
+    "typeKey": "pdf",
+    "category": "Technical Documentation"
+  },
+  {
+    "name": "Guide - Frontline Escalation",
+    "path": "Guide - Frontline Escalation.pdf",
+    "url": "Guide - Frontline Escalation.pdf",
+    "type": "PDF",
+    "typeKey": "pdf",
+    "category": "Reference"
+  },
+  {
     "name": "Guide - HCL Notes",
     "path": "Guide - HCL Notes.pdf",
     "url": "Guide - HCL Notes.pdf",
     "type": "PDF",
     "typeKey": "pdf",
     "category": "Reference"
+  },
+  {
+    "name": "Job Aid - Title Summary Requirements",
+    "path": "Job Aid - Title Summary Requirements.pdf",
+    "url": "Job Aid - Title Summary Requirements.pdf",
+    "type": "PDF",
+    "typeKey": "pdf",
+    "category": "Other"
+  },
+  {
+    "name": "Review Escalation_Team_Presentation",
+    "path": "Review Escalation_Team_Presentation.pdf",
+    "url": "Review Escalation_Team_Presentation.pdf",
+    "type": "PDF",
+    "typeKey": "pdf",
+    "category": "Other"
   },
   {
     "name": "Test General Notes",
