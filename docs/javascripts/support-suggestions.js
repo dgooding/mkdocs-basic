@@ -12,6 +12,9 @@ document$.subscribe(function () {
   let sharedIssues = []
   let localSuggestions = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
   let votes = JSON.parse(localStorage.getItem(votesStorageKey) || "{}")
+  localSuggestions = localSuggestions.map(function (suggestion, index) {
+    return Object.assign({ id: "local-existing-" + index }, suggestion)
+  })
   const exampleSuggestions = [
     { id: "example-faq", title: "Add a searchable FAQ for common support questions", details: "Example suggestion | Shared support idea" },
     { id: "example-escalation", title: "Add a quick reference for escalation paths", details: "Example suggestion | Shared support idea" },
