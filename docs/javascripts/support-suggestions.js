@@ -49,6 +49,12 @@ document$.subscribe(function () {
     { id: "example-requests", category: "Issue", title: "Add a simple documentation change request workflow", details: "Example suggestion | Shared support idea" },
   ]
 
+  function formatCreatedDate(created) {
+    if (!created) return ""
+    const date = new Date(created)
+    return isNaN(date.getTime()) ? "" : " | Posted " + date.toLocaleString()
+  }
+
   function renderSuggestion(suggestion) {
     const item = document.createElement("article")
     item.className = "itsd-suggestion"
@@ -80,7 +86,7 @@ document$.subscribe(function () {
     }
 
     const details = document.createElement("p")
-    details.textContent = (suggestion.category || "Suggestion") + " | " + suggestion.details
+    details.textContent = (suggestion.category || "Suggestion") + " | " + suggestion.details + formatCreatedDate(suggestion.created)
     content.append(title, details)
 
     const actions = document.createElement("div")
