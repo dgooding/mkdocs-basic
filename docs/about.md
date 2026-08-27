@@ -16,7 +16,7 @@ This is where the team turns repeated questions, proven fixes, and important han
 
 <div class="itsd-about-brief" markdown>
 
-<div>
+<div markdown>
 
 ### Start here when you need to
 
@@ -27,7 +27,7 @@ This is where the team turns repeated questions, proven fixes, and important han
 
 </div>
 
-<div>
+<div markdown>
 
 ### What belongs here
 
