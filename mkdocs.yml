@@ -79,6 +79,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/document-library.js
+  - javascripts/document-search.js
 
 nav:
   - Home: index.md
