@@ -23,6 +23,12 @@
   letter-spacing: 0;
 }
 
+.md-typeset h2 {
+  color: var(--itsd-blue);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
 .itsd-intro {
   border-left: 0.25rem solid var(--itsd-teal);
   margin: 1.25rem 0 2rem;
@@ -38,6 +44,26 @@
 
 .itsd-intro p {
   font-size: 1.08rem;
+  margin: 0;
+}
+
+.itsd-page-intro {
+  background: rgb(255 255 255 / 0.7);
+  border: 1px solid #d8e7ec;
+  border-left: 0.25rem solid var(--itsd-teal);
+  margin: 1.25rem 0 2rem;
+  max-width: 48rem;
+  padding: 1.1rem 1.25rem;
+}
+
+.itsd-page-intro h2 {
+  color: var(--itsd-navy);
+  font-size: 1.25rem;
+  margin: 0 0 0.3rem;
+}
+
+.itsd-page-intro p {
+  font-size: 1.05rem;
   margin: 0;
 }
 
@@ -60,6 +86,57 @@
   box-shadow: 0 0.35rem 0.9rem rgb(18 61 90 / 0.14);
 }
 
+.itsd-library {
+  max-width: 50rem;
+}
+
+.itsd-library > ul > li {
+  border-color: #c9dce4;
+  box-shadow: 0 0.2rem 0.65rem rgb(18 61 90 / 0.08);
+}
+
+.itsd-library > ul > li:hover {
+  border-color: var(--itsd-teal);
+  box-shadow: 0 0.35rem 0.9rem rgb(18 61 90 / 0.14);
+}
+
+.itsd-status {
+  background: #e8f6f3;
+  border-left: 0.25rem solid var(--itsd-teal);
+  margin: 1.5rem 0;
+  max-width: 44rem;
+  padding: 0.85rem 1rem;
+}
+
+.itsd-principles {
+  max-width: 44rem;
+}
+
+.itsd-principles ul {
+  display: grid;
+  gap: 0.65rem;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.itsd-principles li {
+  background: rgb(255 255 255 / 0.72);
+  border-left: 0.2rem solid var(--itsd-blue);
+  margin: 0;
+  padding: 0.65rem 0.85rem;
+}
+
+.md-typeset .md-button--primary {
+  background-color: var(--itsd-teal);
+  border-color: var(--itsd-teal);
+}
+
+.md-typeset .md-button--primary:hover {
+  background-color: #087b72;
+  border-color: #087b72;
+}
+
 [data-md-color-scheme="slate"] .md-main {
   background: #18242b;
 }
@@ -67,4 +144,18 @@
 [data-md-color-scheme="slate"] .md-typeset h1,
 [data-md-color-scheme="slate"] .itsd-intro h2 {
   color: #79c7ef;
+}
+
+[data-md-color-scheme="slate"] .itsd-page-intro,
+[data-md-color-scheme="slate"] .itsd-principles li {
+  background: rgb(20 35 43 / 0.8);
+  border-color: #2c5669;
+}
+
+[data-md-color-scheme="slate"] .itsd-page-intro h2 {
+  color: #79c7ef;
+}
+
+[data-md-color-scheme="slate"] .itsd-status {
+  background: #173c39;
 }
