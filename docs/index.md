@@ -37,9 +37,7 @@ Be aware, you have full rights to modify this site, so please don't, just yet. I
 
 </div>
 
-## Choose your next move
-
-Choose your next move, cause these links go to fun spots
+## Choose your next move, cause these links go to fun spots
 
 <div class="itsd-home-routes" markdown>
 
