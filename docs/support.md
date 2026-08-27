@@ -66,6 +66,6 @@ Share a feature request, report a problem, or suggest guidance that would make t
 
 <div class="itsd-status" markdown>
 
-New submissions appear in **Recent suggestions** for four days before moving into their category. Suggestions, votes, and status changes are stored in this browser so the site remains fully static and works without a server. Each browser can upvote a suggestion once. This prevents accidental repeat votes in one browser, but it is not customer-level identity enforcement; that requires sign-in and a server-side vote store.
+New submissions appear in **Recent suggestions** for four days before moving into their category. Suggestions, votes, and status changes are stored in this browser so the site remains fully static and GitHub Pages compatible. Each browser can upvote a suggestion once. This prevents accidental repeat votes in one browser, but it is not customer-level identity enforcement; that requires sign-in and a server-side vote store.
 
 </div>

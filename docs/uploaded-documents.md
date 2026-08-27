@@ -6,11 +6,14 @@
 
 Find documents by name, file type, or category. Select a document title to open it.
 
+This library is hosted on GitHub. You can modify the documents but then i'd have to fix it so... 
+I'm leaving this open for a reason, i'll figure out later.
+
 </div>
 
 <div class="itsd-library-actions">
-	<a class="md-button md-button--primary" href="https://github.com/dgooding/mkdocs-basic/upload/main/docs" target="_blank" rel="noopener">Upload a document</a>
-	<a class="md-button" href="https://github.com/dgooding/mkdocs-basic/tree/main/docs" target="_blank" rel="noopener">Browse files on GitHub</a>
+	<a class="md-button md-button--primary" href="upload-documents.html">Upload a document</a>
+	<a class="md-button" href="https://github.com/dgooding/mkdocs-basic/tree/main/docs" target="_blank" rel="noopener">Manage documents on GitHub</a>
 </div>
 
 <div class="itsd-library-controls" data-document-library-controls>
@@ -24,7 +27,6 @@ Find documents by name, file type, or category. Select a document title to open 
 			<button type="button" data-document-type="all" aria-pressed="true">All</button>
 			<button type="button" data-document-type="md" aria-pressed="false">Markdown</button>
 			<button type="button" data-document-type="pdf" aria-pressed="false">PDF</button>
-			<button type="button" data-document-type="docx" aria-pressed="false">Word</button>
 		</div>
 	</fieldset>
 	<div class="itsd-library-control">
@@ -52,7 +54,7 @@ Find documents by name, file type, or category. Select a document title to open 
 				<th scope="col">Document</th>
 				<th scope="col">Category</th>
 				<th scope="col">Type</th>
-				<th scope="col">Actions</th>
+				<th scope="col">GitHub action</th>
 			</tr>
 		</thead>
 		<tbody data-document-library-results></tbody>
@@ -63,6 +65,6 @@ Find documents by name, file type, or category. Select a document title to open 
 
 <div class="itsd-status" markdown>
 
-**Deleting documents:** Delete opens a confirmation page in the source repository. You may need to sign in, and no file is removed until an authorized user commits the deletion. Use **Manage documents** to review or remove several files.
+**Deleting documents:** Delete on GitHub opens a confirmation page in the repository. You may need to sign in, and no file is removed until an authorized user commits the deletion. Use **Manage documents on GitHub** to review or remove several files.
 
 </div>

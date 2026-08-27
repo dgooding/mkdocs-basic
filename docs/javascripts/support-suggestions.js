@@ -199,7 +199,7 @@ document$.subscribe(function () {
     }
     const lines = [["Category", "Suggestion", "Details", "Status", "Votes", "Created", "Source", "Link"]]
     exportSuggestions.forEach(function (suggestion) {
-        const source = suggestion.id.indexOf("issue-") === 0 ? "Shared suggestion" : suggestion.id.indexOf("local-") === 0 || suggestion.id.indexOf("local-existing-") === 0 ? "This browser" : "Example"
+      const source = suggestion.id.indexOf("issue-") === 0 ? "GitHub" : suggestion.id.indexOf("local-") === 0 || suggestion.id.indexOf("local-existing-") === 0 ? "This browser" : "Example"
       lines.push([
         suggestion.category || "Other",
         suggestion.title,

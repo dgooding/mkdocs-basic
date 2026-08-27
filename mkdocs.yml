@@ -1,6 +1,9 @@
 site_name: ITSD Documentation
 site_description: IT Service Delivery documentation and operational guidance.
 site_url: https://dgooding.github.io/mkdocs-basic/
+repo_url: https://github.com/dgooding/mkdocs-basic
+repo_name: dgooding/mkdocs-basic
+edit_uri: edit/main/docs/
 
 theme:
   name: material
@@ -35,6 +38,8 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
+    - content.action.edit
+    - content.action.view
     - content.code.copy
     - content.tooltips
 
@@ -62,6 +67,11 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dgooding/mkdocs-basic
 
 copyright: Copyright &copy; 2026 IT Service Delivery
 

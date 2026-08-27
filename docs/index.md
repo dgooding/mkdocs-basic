@@ -11,6 +11,8 @@ search:
 
 Find the procedure, handoff, or service note you need to resolve the next ticket with confidence.
 
+Be aware, you have full rights to modify this site, so please don't, just yet. I've gotta figure out a Docs Converter thing first.
+
 </div>
 
 <div class="grid cards itsd-actions" markdown>
@@ -35,8 +37,22 @@ Find the procedure, handoff, or service note you need to resolve the next ticket
 
 </div>
 
+## Choose your next move
+
+<div class="itsd-home-routes" markdown>
+
+[:material-file-search-outline: **I need the right procedure**](uploaded-documents.md)
+
+[:material-directions-fork: **I need an escalation path**](De-escalated%20Tickets_converted.md)
+
+[:material-history: **I need to see what changed**](change-log.md)
+
+[:material-message-question-outline: **I found a gap**](support.md)
+
+</div>
+
 <div class="itsd-status" markdown>
 
-**A useful habit:** If you solve the same problem twice, leave the next person a searchable page instead of another mystery.
+**A useful habit[\:](https://ais-dev-cyekf7zm2pwwsddc2ubzuh-58381161634.us-east1.run.app/mkdocs/)** If you solve the same problem twice, leave the next person a searchable page instead of another mystery[.](https://egggame.org/)
 
 </div>

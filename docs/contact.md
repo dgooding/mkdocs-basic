@@ -19,8 +19,8 @@ Use your established IT service desk or team communication channel for service r
 
 **Improve this site**
 
-Found an error or missing detail? Open **Support** to report it, or use **Upload a document** to add a corrected version.
+Found an error or missing detail? Select the edit icon at the top of any page to propose a change through GitHub.
 
-<small>[Here is a 87 hour nightmare site](https://mkdocs-site-688900746393.us-west2.run.app/)</small>
+<small>[This site doesn't work but a one shot Google AI Flash site for MkDocs](https://mkdocs-site-688900746393.us-west2.run.app/)</small>
 
 </div>

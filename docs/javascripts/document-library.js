@@ -49,9 +49,9 @@ document$.subscribe(function () {
       deleteLink.href = "https://github.com/dgooding/mkdocs-basic/delete/main/docs/" + item.path.split("/").map(encodeURIComponent).join("/")
       deleteLink.target = "_blank"
       deleteLink.rel = "noopener"
-      deleteLink.textContent = "Remove document"
+      deleteLink.textContent = "Delete on GitHub"
       deleteLink.addEventListener("click", function (event) {
-        if (!window.confirm("Open the source repository to review and commit the deletion of '" + item.name + "'?")) event.preventDefault()
+        if (!window.confirm("Open GitHub to review and commit the deletion of '" + item.name + "'?")) event.preventDefault()
       })
       actionsCell.append(deleteLink)
       row.append(documentCell, categoryCell, typeCell, actionsCell)

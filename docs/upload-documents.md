@@ -4,7 +4,7 @@
 
 ## Add to the shared library
 
-Upload one or more files and they will appear in the ITSD documentation site after publishing.
+Upload one or more files to GitHub and they will appear in the ITSD documentation site after publishing.
 
 </div>
 
@@ -14,7 +14,7 @@ Upload one or more files and they will appear in the ITSD documentation site aft
 
 1. Select **Upload a document** above.
 2. Choose one or more Markdown files from your computer.
-3. Select **Commit changes** at the bottom of the upload page.
+3. Select **Commit changes** at the bottom of the GitHub page.
 
 <div class="itsd-status" markdown>
 
@@ -24,7 +24,7 @@ Upload one or more files and they will appear in the ITSD documentation site aft
 
 !!! tip "What can I upload?"
 
-    Upload Markdown documents (`.md`), PDFs, Word documents (`.docx`), images, and other supporting files. You can select multiple files at once. Markdown, PDF, and Word documents appear in the Documents library and are searchable by name; other file types are stored but not listed.
+    Upload Markdown documents (`.md`), PDFs, images, and other supporting files. You can select multiple files at once.
 
 <small>For a batch of Markdown files, ZIP uploads are supported in the [batch upload folder](https://github.com/dgooding/mkdocs-basic/upload/main/docs/incoming). Individual Markdown files are recommended.</small>
 

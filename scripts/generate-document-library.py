@@ -16,7 +16,7 @@ EXCLUDED_FILES = {
     "uploaded-documents.md",
 }
 EXCLUDED_DIRECTORIES = {"assets", "incoming", "javascripts", "stylesheets"}
-SUPPORTED_SUFFIXES = {".md": "Markdown", ".pdf": "PDF", ".docx": "Word Document"}
+SUPPORTED_SUFFIXES = {".md": "Markdown", ".pdf": "PDF"}
 CATEGORY_RULES = {
     "SOP": ("sop", "standard operating", "procedure", "runbook", "playbook"),
     "Technical Documentation": ("technical", "api", "configuration", "config", "architecture", "troubleshooting", "de-escalat"),

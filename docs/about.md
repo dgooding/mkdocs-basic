@@ -43,6 +43,6 @@ Do not publish passwords, tokens, private keys, personal data, confidential cust
 
 ## Site ownership
 
-The site is a static site with its source maintained in a version-controlled repository. Sign-in and repository permissions may be required to upload, edit, or delete files. Changes should be reviewed and committed through the normal review process.
+The site is hosted on GitHub Pages and its source is maintained in the `dgooding/mkdocs-basic` repository. GitHub sign-in and repository permissions may be required to upload, edit, or delete files. Changes should be reviewed and committed through the normal repository process.
 
 When in doubt, go to **Support** and explain what would have made the last ticket easier.
