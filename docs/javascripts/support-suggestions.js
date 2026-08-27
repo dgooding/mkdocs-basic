@@ -46,6 +46,17 @@ document$.subscribe(function () {
     const item = document.createElement("article")
     item.className = "itsd-suggestion"
 
+    const vote = document.createElement("button")
+    vote.className = "itsd-suggestion-vote"
+    vote.type = "button"
+    vote.setAttribute("aria-label", "Upvote " + suggestion.title)
+    vote.innerHTML = "<span aria-hidden=\"true\">&uarr;</span><strong>" + (votes[suggestion.id] || 0) + "</strong>"
+    vote.addEventListener("click", function () {
+      votes[suggestion.id] = (votes[suggestion.id] || 0) + 1
+      localStorage.setItem(votesStorageKey, JSON.stringify(votes))
+      render()
+    })
+
     const content = document.createElement("div")
     content.className = "itsd-suggestion-content"
 
@@ -65,17 +76,36 @@ document$.subscribe(function () {
     details.textContent = (suggestion.category || "Suggestion") + " | " + suggestion.details
     content.append(title, details)
 
-    const vote = document.createElement("button")
-    vote.className = "itsd-suggestion-vote"
-    vote.type = "button"
-    vote.setAttribute("aria-label", "Upvote " + suggestion.title)
-    vote.innerHTML = "<strong>Upvote</strong><span>" + (votes[suggestion.id] || 0) + "</span>"
-    vote.addEventListener("click", function () {
-      votes[suggestion.id] = (votes[suggestion.id] || 0) + 1
-      localStorage.setItem(votesStorageKey, JSON.stringify(votes))
-      render()
-    })
-    item.append(content, vote)
+    const actions = document.createElement("div")
+    actions.className = "itsd-suggestion-controls"
+    if (suggestion.id.indexOf("local-") === 0 || suggestion.id.indexOf("local-existing-") === 0) {
+      const statusButton = document.createElement("button")
+      statusButton.className = "itsd-suggestion-status"
+      statusButton.type = "button"
+      const isComplete = suggestion.status === "complete"
+      statusButton.setAttribute("aria-label", isComplete ? "Mark suggestion as pending" : "Mark suggestion as complete")
+      statusButton.title = statusButton.getAttribute("aria-label")
+      statusButton.innerHTML = isComplete ? "<span aria-hidden=\"true\">&#10003;</span>" : "<span aria-hidden=\"true\">&#9675;</span>"
+      statusButton.addEventListener("click", function () {
+        suggestion.status = isComplete ? "pending" : "complete"
+        localStorage.setItem(localStorageKey, JSON.stringify(localSuggestions))
+        render()
+      })
+
+      const deleteButton = document.createElement("button")
+      deleteButton.className = "itsd-suggestion-delete"
+      deleteButton.type = "button"
+      deleteButton.setAttribute("aria-label", "Delete suggestion")
+      deleteButton.title = "Delete suggestion"
+      deleteButton.innerHTML = "<span aria-hidden=\"true\">&times;</span>"
+      deleteButton.addEventListener("click", function () {
+        localSuggestions = localSuggestions.filter(function (entry) { return entry.id !== suggestion.id })
+        localStorage.setItem(localStorageKey, JSON.stringify(localSuggestions))
+        render()
+      })
+      actions.append(statusButton, deleteButton)
+    }
+    item.append(vote, content, actions)
     return item
   }
 

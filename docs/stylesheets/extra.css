@@ -243,9 +243,8 @@
   align-items: center;
   border-bottom: 1px solid #d8e7ec;
   display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  padding: 0.9rem 1rem;
+  gap: 0.7rem;
+  padding: 0.7rem 0.85rem;
 }
 
 .itsd-suggestion-group {
@@ -282,6 +281,7 @@
 }
 
 .itsd-suggestion-content {
+  flex: 1 1 auto;
   min-width: 0;
 }
 
@@ -306,15 +306,17 @@
 
 .itsd-suggestion-vote {
   align-items: center;
-  border: 1px solid #a7d8d2;
-  border-radius: 3px;
+  background: transparent;
+  border: 0;
+  border-radius: 2px;
   color: #076b63;
   display: inline-flex;
   flex: 0 0 auto;
-  gap: 0.3rem;
+  flex-direction: column;
+  gap: 0.05rem;
   justify-content: center;
-  min-width: 3.1rem;
-  padding: 0.35rem 0.55rem;
+  min-width: 1.8rem;
+  padding: 0.15rem 0.25rem;
   text-align: center;
 }
 
@@ -323,8 +325,49 @@
   color: #076b63;
 }
 
+.itsd-suggestion-vote span,
+.itsd-suggestion-vote strong {
+  line-height: 1;
+}
+
 .itsd-suggestion-vote span {
-  font-size: 0.8rem;
+  font-size: 1rem;
+}
+
+.itsd-suggestion-vote strong {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.itsd-suggestion-controls {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.15rem;
+}
+
+.itsd-suggestion-status,
+.itsd-suggestion-delete {
+  background: transparent;
+  border: 0;
+  border-radius: 2px;
+  color: #78909c;
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1;
+  min-height: 1.7rem;
+  min-width: 1.7rem;
+  padding: 0.25rem;
+}
+
+.itsd-suggestion-status:hover {
+  background: #d8f2ed;
+  color: #076b63;
+}
+
+.itsd-suggestion-delete:hover {
+  background: #fbe8e7;
+  color: #b3261e;
 }
 
 @media screen and (min-width: 76.25em) {
