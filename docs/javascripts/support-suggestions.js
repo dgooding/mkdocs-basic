@@ -171,7 +171,11 @@ document$.subscribe(function () {
       recentSection.className = "itsd-recent-suggestions"
       const recentHeading = document.createElement("h3")
       recentHeading.textContent = "Recent suggestions"
-      recentSection.append(recentHeading, ...recentSuggestions.map(renderSuggestion))
+      recentSection.append(recentHeading, ...recentSuggestions.map(function (suggestion) {
+        const item = renderSuggestion(suggestion)
+        item.open = openSuggestions.has(suggestion.id)
+        return item
+      }))
       resultElements.push(recentSection)
     }
     const groups = new Map()
