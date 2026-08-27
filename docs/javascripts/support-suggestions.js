@@ -12,10 +12,12 @@ document$.subscribe(function () {
   const form = document.querySelector("[data-suggestion-form]")
   const exportButton = document.querySelector("[data-suggestion-export]")
   const endpoint = "https://api.github.com/repos/dgooding/mkdocs-basic/issues?labels=enhancement&state=open&per_page=50"
+  const localStorageKey = "itsd-suggestions"
   const votesStorageKey = "itsd-suggestion-votes"
   const votedStorageKey = "itsd-suggestion-voted"
   const statusesStorageKey = "itsd-suggestion-statuses"
   let sharedIssues = []
+  let localSuggestions = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
   let votes = JSON.parse(localStorage.getItem(votesStorageKey) || "{}")
   let voted = JSON.parse(localStorage.getItem(votedStorageKey) || "{}")
   let statuses = JSON.parse(localStorage.getItem(statusesStorageKey) || "{}")
@@ -45,6 +47,10 @@ document$.subscribe(function () {
     { id: "example-calendar", category: "Feature request", title: "Add a calendar of planned maintenance windows", details: "Example suggestion | Shared support idea" },
     { id: "example-requests", category: "Issue", title: "Add a simple documentation change request workflow", details: "Example suggestion | Shared support idea" },
   ]
+
+  localSuggestions = localSuggestions.map(function (suggestion, index) {
+    return Object.assign({ id: "local-existing-" + index }, suggestion)
+  })
 
 
   function formatCreatedDate(created) {
@@ -110,6 +116,20 @@ document$.subscribe(function () {
       render()
     })
     actions.append(statusButton)
+    if (suggestion.id.indexOf("local-") === 0 || suggestion.id.indexOf("local-existing-") === 0) {
+      const deleteButton = document.createElement("button")
+      deleteButton.className = "itsd-suggestion-delete"
+      deleteButton.type = "button"
+      deleteButton.setAttribute("aria-label", "Delete comment")
+      deleteButton.title = "Delete comment"
+      deleteButton.innerHTML = "<span aria-hidden=\"true\">&times;</span>"
+      deleteButton.addEventListener("click", function () {
+        localSuggestions = localSuggestions.filter(function (entry) { return entry.id !== suggestion.id })
+        localStorage.setItem(localStorageKey, JSON.stringify(localSuggestions))
+        render()
+      })
+      actions.append(deleteButton)
+    }
     item.append(vote, content, actions)
     return item
   }
@@ -118,7 +138,7 @@ document$.subscribe(function () {
     const openCategories = new Set(Array.from(list.querySelectorAll("details[open] summary"), function (heading) {
       return heading.textContent.replace(/ \(\d+\)$/, "")
     }))
-    const allSuggestions = exampleSuggestions.concat(sharedIssues)
+    const allSuggestions = exampleSuggestions.concat(localSuggestions, sharedIssues)
     const visibleSuggestions = allSuggestions.filter(function (suggestion) {
       const currentStatus = (statuses[suggestion.id] || suggestion.status || "pending")
       const matchesStatus = !statusFilter.value || currentStatus === statusFilter.value
@@ -171,13 +191,13 @@ document$.subscribe(function () {
   }
 
   function exportSuggestions() {
-    const exportSuggestions = exampleSuggestions.concat(sharedIssues)
+    const exportSuggestions = exampleSuggestions.concat(localSuggestions, sharedIssues)
     const escapeCsvValue = function (value) {
       return '"' + String(value || "").replace(/"/g, '""') + '"'
     }
     const lines = [["Category", "Suggestion", "Details", "Status", "Votes", "Created", "Source", "Link"]]
     exportSuggestions.forEach(function (suggestion) {
-      const source = suggestion.id.indexOf("issue-") === 0 ? "GitHub" : "Example"
+      const source = suggestion.id.indexOf("issue-") === 0 ? "GitHub" : suggestion.id.indexOf("local-") === 0 || suggestion.id.indexOf("local-existing-") === 0 ? "This browser" : "Example"
       lines.push([
         suggestion.category || "Other",
         suggestion.title,
@@ -251,12 +271,17 @@ document$.subscribe(function () {
   form.addEventListener("submit", function (event) {
     event.preventDefault()
     const data = new FormData(form)
-    const issueUrl = new URL("https://github.com/dgooding/mkdocs-basic/issues/new")
-    issueUrl.searchParams.set("template", "feature_request.md")
-    issueUrl.searchParams.set("title", data.get("category") + ": " + data.get("text"))
-    issueUrl.searchParams.set("body", "## Category\n\n" + data.get("category") + "\n\n## Suggestion\n\n" + data.get("text"))
-    location.assign(issueUrl.toString())
+    playShredderSound()
+    localSuggestions.unshift({
+      id: "local-" + Date.now(),
+      title: data.get("text"),
+      category: data.get("category"),
+      details: "Local browser comment",
+      created: new Date().toISOString(),
+    })
+    localStorage.setItem(localStorageKey, JSON.stringify(localSuggestions))
     form.reset()
+    render()
   })
   exportButton.addEventListener("click", exportSuggestions)
   ;[dateFilter, statusFilter, categoryFilter, keywordFilter].forEach(function (filter) {
