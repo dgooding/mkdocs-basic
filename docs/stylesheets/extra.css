@@ -149,8 +149,9 @@
 .itsd-suggestion-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
-  margin: 1.25rem 0;
+  justify-content: flex-end;
+  margin: 0.35rem 0 0.5rem;
+  max-width: 60rem;
 }
 
 .itsd-export-button {
@@ -174,13 +175,15 @@
 
 .itsd-suggestion-form {
   align-items: start;
-  background: rgb(255 255 255 / 0.72);
+  background: #fff;
   border: 1px solid #d8e7ec;
+  border-top: 0.25rem solid var(--itsd-teal);
+  box-shadow: 0 0.25rem 1rem rgb(18 61 90 / 0.08);
   display: grid;
-  gap: 0.45rem;
-  margin: 1.25rem 0;
+  gap: 0.55rem;
+  margin: 0.5rem 0 1.5rem;
   max-width: 60rem;
-  padding: 1rem;
+  padding: 1.1rem 1.25rem 1.25rem;
 }
 
 .itsd-suggestion-form label {
@@ -202,6 +205,11 @@
 .itsd-suggestion-form textarea {
   min-height: 6rem;
   resize: vertical;
+}
+
+.itsd-suggestion-form button[type="submit"] {
+  justify-self: start;
+  margin-top: 0.35rem;
 }
 
 .itsd-suggestions {
