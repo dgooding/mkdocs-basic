@@ -870,7 +870,8 @@
 
 .itsd-search-workspace {
   margin-top: 0.8rem;
-  max-width: 76rem;
+  max-width: none;
+  width: 100%;
 }
 
 .itsd-search-bar {
@@ -968,6 +969,15 @@
 
 .itsd-search-page .md-search {
   display: none;
+}
+
+.itsd-search-page .md-grid {
+  max-width: none;
+}
+
+.itsd-search-page .md-content {
+  margin-right: 0;
+  width: 100%;
 }
 
 .itsd-status {
