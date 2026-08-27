@@ -14,5 +14,45 @@
     "type": "PDF",
     "typeKey": "pdf",
     "category": "Reference"
+  },
+  {
+    "name": "Test General Notes",
+    "path": "Test General Notes.md",
+    "url": "Test General Notes.html",
+    "type": "Markdown",
+    "typeKey": "md",
+    "category": "Other"
+  },
+  {
+    "name": "Test Reference - ITSD Glossary",
+    "path": "Test Reference - ITSD Glossary.md",
+    "url": "Test Reference - ITSD Glossary.html",
+    "type": "Markdown",
+    "typeKey": "md",
+    "category": "Reference"
+  },
+  {
+    "name": "Test SOP - Password Reset",
+    "path": "Test SOP - Password Reset.md",
+    "url": "Test SOP - Password Reset.html",
+    "type": "Markdown",
+    "typeKey": "md",
+    "category": "SOP"
+  },
+  {
+    "name": "Test Technical Documentation - Network Configuration",
+    "path": "Test Technical Documentation - Network Configuration.md",
+    "url": "Test Technical Documentation - Network Configuration.html",
+    "type": "Markdown",
+    "typeKey": "md",
+    "category": "Technical Documentation"
+  },
+  {
+    "name": "Test Training - Service Desk Onboarding",
+    "path": "Test Training - Service Desk Onboarding.md",
+    "url": "Test Training - Service Desk Onboarding.html",
+    "type": "Markdown",
+    "typeKey": "md",
+    "category": "Training"
   }
 ]
