@@ -19,5 +19,12 @@
     "url": "search.html",
     "type": "Markdown",
     "typeKey": "md"
+  },
+  {
+    "name": "Workflow",
+    "path": "workflow.md",
+    "url": "workflow.html",
+    "type": "Markdown",
+    "typeKey": "md"
   }
 ]
