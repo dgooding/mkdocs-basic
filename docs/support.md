@@ -9,8 +9,7 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 </div>
 
 <div class="itsd-suggestion-actions">
-  <button class="md-button md-button--primary" type="button" data-suggestion-export>Export suggestions</button>
-  <a class="md-button" href="https://github.com/dgooding/mkdocs-basic/issues?q=is%3Aissue+is%3Aopen+label%3Afeature-request">View shared suggestions</a>
+  <button class="md-button itsd-export-button" type="button" data-suggestion-export>Export suggestions</button>
 </div>
 
 <form class="itsd-suggestion-form" data-suggestion-form>

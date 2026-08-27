@@ -153,6 +153,20 @@
   margin: 1.25rem 0;
 }
 
+.itsd-export-button {
+  border-color: transparent;
+  color: #5b6f7b;
+  font-size: 0.8rem;
+  font-weight: 400;
+  padding: 0.25rem 0.4rem;
+}
+
+.itsd-export-button:hover {
+  background: #e6f2f5;
+  border-color: #d8e7ec;
+  color: var(--itsd-navy);
+}
+
 .itsd-suggestion-form {
   align-items: start;
   background: rgb(255 255 255 / 0.72);
