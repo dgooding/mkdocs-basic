@@ -79,12 +79,32 @@
 .md-main__inner {
   display: block;
   margin-top: 1.25rem;
+  position: relative;
 }
 
 .md-content > .md-content__inner {
   margin-left: auto;
   margin-right: auto;
   max-width: 76rem;
+}
+
+.md-sidebar--secondary {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 12.1rem;
+}
+
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+  max-height: calc(100vh - 8rem);
+  overflow-y: auto;
+  position: sticky;
+  top: 1rem;
+}
+
+.md-sidebar--secondary ~ .md-content {
+  margin-right: 13.7rem;
 }
 
 .md-tabs__list {
@@ -110,6 +130,16 @@
 .md-tabs__item--active .md-tabs__link {
   border-bottom-color: #7de0d2;
   opacity: 1;
+}
+
+@media screen and (max-width: 59.99em) {
+  .md-sidebar--secondary {
+    display: none;
+  }
+
+  .md-sidebar--secondary ~ .md-content {
+    margin-right: 0;
+  }
 }
 
 .md-main {
