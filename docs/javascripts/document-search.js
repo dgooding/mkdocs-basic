@@ -18,7 +18,6 @@ document$.subscribe(function () {
     "index.md",
     "search.md",
     "support.md",
-    "upload-documents.md",
     "uploaded-documents.md",
   ])
 

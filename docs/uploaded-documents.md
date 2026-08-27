@@ -6,9 +6,6 @@
 
 Find documents by name, file type, or category. Select a document title to open it.
 
-This library is hosted on GitHub. You can modify the documents but then i'd have to fix it so... 
-I'm leaving this open for a reason, i'll figure out later.
-
 </div>
 
 <div class="itsd-library-actions">
