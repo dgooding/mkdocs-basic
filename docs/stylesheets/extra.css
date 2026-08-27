@@ -828,6 +828,12 @@
   background: #f1f8f9;
 }
 
+.itsd-library-table td:nth-child(2) {
+  color: #076b63;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
 .itsd-library-table td:last-child {
   color: #5b6f7b;
   font-size: 0.85rem;
