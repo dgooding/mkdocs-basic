@@ -14,7 +14,7 @@ Search, filter, and open documents in the shared ITSD library.
 	<input id="document-library-search" type="search" placeholder="Search documents" aria-label="Search documents">
 	<div class="itsd-library-filters" role="group" aria-label="Filter documents by type">
 		<button type="button" data-document-type="all" aria-pressed="true">All</button>
-		<button type="button" data-document-type="markdown" aria-pressed="false">Markdown</button>
+		<button type="button" data-document-type="md" aria-pressed="false">Markdown</button>
 		<button type="button" data-document-type="pdf" aria-pressed="false">PDF</button>
 	</div>
 	<label for="document-library-sort">Sort</label>
