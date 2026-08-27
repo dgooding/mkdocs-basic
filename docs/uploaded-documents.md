@@ -26,6 +26,7 @@ These files are hosted centrally and you have full access, please don't modify t
 			<button type="button" data-document-type="all" aria-pressed="true">All</button>
 			<button type="button" data-document-type="md" aria-pressed="false">Markdown</button>
 			<button type="button" data-document-type="pdf" aria-pressed="false">PDF</button>
+			<button type="button" data-document-type="docx" aria-pressed="false">Word</button>
 		</div>
 	</fieldset>
 	<div class="itsd-library-control">
