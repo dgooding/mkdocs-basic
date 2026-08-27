@@ -37,7 +37,18 @@ document$.subscribe(function () {
       documentCell.append(link)
       const typeCell = document.createElement("td")
       typeCell.textContent = item.type
-      row.append(documentCell, typeCell)
+      const actionsCell = document.createElement("td")
+      const deleteLink = document.createElement("a")
+      deleteLink.className = "itsd-document-delete"
+      deleteLink.href = "https://github.com/dgooding/mkdocs-basic/edit/main/docs/" + item.path.split("/").map(encodeURIComponent).join("/")
+      deleteLink.target = "_blank"
+      deleteLink.rel = "noopener"
+      deleteLink.textContent = "Delete"
+      deleteLink.addEventListener("click", function (event) {
+        if (!window.confirm("Open GitHub to delete '" + item.name + "'?")) event.preventDefault()
+      })
+      actionsCell.append(deleteLink)
+      row.append(documentCell, typeCell, actionsCell)
       return row
     }))
 

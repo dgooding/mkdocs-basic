@@ -6,7 +6,7 @@
 
 ## Shared ITSD library
 
-Search, filter, and open documents in the shared ITSD library.
+Search, filter, open, and manage documents in the shared ITSD library.
 
 </div>
 
@@ -34,6 +34,7 @@ Search, filter, and open documents in the shared ITSD library.
 			<tr>
 				<th scope="col">Document</th>
 				<th scope="col">Type</th>
+				<th scope="col">Actions</th>
 			</tr>
 		</thead>
 		<tbody data-document-library-results></tbody>
@@ -41,3 +42,9 @@ Search, filter, and open documents in the shared ITSD library.
 </div>
 
 <nav class="itsd-library-pagination" aria-label="Document pages" data-document-library-pagination></nav>
+
+<div class="itsd-status" markdown>
+
+Delete opens GitHub's file editor. You need repository write permission to delete the file and commit the change.
+
+</div>

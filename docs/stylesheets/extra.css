@@ -706,6 +706,15 @@
   width: 7rem;
 }
 
+.itsd-document-delete {
+  color: #b3261e;
+  font-size: 0.8rem;
+}
+
+.itsd-document-delete:hover {
+  color: #8c1d18;
+}
+
 .itsd-library-pagination {
   display: flex;
   gap: 0.25rem;
