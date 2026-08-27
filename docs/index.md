@@ -13,8 +13,6 @@ Find the procedure, handoff, or service note you need to resolve the next ticket
 
 Be aware, you have full rights to modify this site, so please don't, just yet. I've gotta figure out a Docs Converter thing first.
 
-If something is missing, confusing, or suspiciously clever, go to the **Support** tab and leave a note. The documentation team accepts constructive criticism and snacks.
-
 </div>
 
 <form class="itsd-home-search" action="search.html" method="get">
