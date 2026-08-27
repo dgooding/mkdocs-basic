@@ -107,6 +107,8 @@ This section records the work completed after the initial Support-page timeline,
 - Browser testing confirmed all document Delete links point to the matching GitHub editor paths and that the bulk action points to the repository docs folder.
 - Browser testing confirmed home-page search routes to `search.html?q=...` and the global content-page search uses the same results workflow.
 - Browser testing confirmed the selected search document fills the available reader width and that searches return only document-library entries.
+- Completed a full GitHub Pages smoke audit: all published routes returned HTTP 200; Home, About, Support, Documents, Contact, Change Log, upload, and de-escalation pages rendered; internal hash links resolved; expected scripts, styles, and assets loaded; Home and global search routed correctly; the Markdown reader opened a selected document; document filters and delete links were present; Support filters, timestamps, statuses, upvotes, dropdown preservation, and local cleanup all passed.
+- The audit found no site-breaking issues. A transient browser-reported 404 was not reproducible on reload and did not correspond to a navigational link or required site asset.
 
 ### Recent Validation Evidence
 
