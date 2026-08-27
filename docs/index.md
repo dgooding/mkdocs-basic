@@ -15,14 +15,6 @@ Be aware, you have full rights to modify this site, so please don't, just yet. I
 
 </div>
 
-<form class="itsd-home-search" action="search.html" method="get">
-    <label for="home-search">Search the knowledge base</label>
-    <div>
-        <input id="home-search" name="q" type="search" placeholder="Try: escalation, HCL, ticket notes" required>
-        <button class="md-button md-button--primary" type="submit">Search</button>
-    </div>
-</form>
-
 <div class="grid cards itsd-actions" markdown>
 
 - :material-magnify: **Find a document**

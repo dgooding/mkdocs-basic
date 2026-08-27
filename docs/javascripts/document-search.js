@@ -5,7 +5,7 @@ document$.subscribe(function () {
     return
   }
 
-  const query = document.querySelector("#document-search-query")
+  const query = document.querySelector('[data-md-component="search-query"]') || document.querySelector('.md-header input[type="search"]')
   const summary = document.querySelector("[data-document-search-summary]")
   const results = document.querySelector("[data-document-search-results]")
   const reader = document.querySelector("[data-document-search-reader]")
@@ -22,6 +22,7 @@ document$.subscribe(function () {
   ])
 
   document.body.classList.add("itsd-search-page")
+  query.value = new URLSearchParams(location.search).get("q") || query.value
   const materialSearchToggle = document.querySelector('[data-md-toggle="search"]')
   if (materialSearchToggle) {
     materialSearchToggle.checked = false

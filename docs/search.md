@@ -1,11 +1,3 @@
-<form class="itsd-search-bar itsd-global-search" action="search.html" method="get">
-  <label for="document-search-query">Search the knowledge base</label>
-  <div>
-    <input id="document-search-query" name="q" type="search" placeholder="Search document titles and content" autocomplete="off">
-    <button class="md-button md-button--primary" type="submit">Search</button>
-  </div>
-</form>
-
 # Search Results
 
 <section class="itsd-search-workspace" data-document-search-view>
