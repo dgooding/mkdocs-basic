@@ -1,6 +1,6 @@
 # Test General Notes
 
-This document is a practical reference for writing and maintaining ITSD documentation. It is intentionally classified as **Other** so the library also demonstrates how useful content can exist outside the main SOP, technical, training, and reference categories.
+This document is a practical guide for writing and maintaining ITSD documentation. It is intentionally classified as **Other** so the library also demonstrates how useful content can exist outside the main SOP, technical, training, and glossary categories.
 
 ## What a good page answers
 
@@ -44,7 +44,7 @@ Metadata is useful only when the team agrees where it belongs and who maintains 
 
 Documentation is part of the operational control, not an afterthought. Update the page when the process changes, ask a colleague to test unclear steps, and use the support channel to report gaps. A short, accurate page is more valuable than a comprehensive page nobody can trust.
 
-## References
+## Further reading
 
 - [Microsoft technical writing guidance](https://learn.microsoft.com/en-us/style-guide/welcome/)
 - [Microsoft security documentation](https://learn.microsoft.com/en-us/security/)
