@@ -12,5 +12,12 @@
     "url": "Guide - HCL Notes.pdf",
     "type": "PDF",
     "typeKey": "pdf"
+  },
+  {
+    "name": "Search Results",
+    "path": "search.md",
+    "url": "search.html",
+    "type": "Markdown",
+    "typeKey": "md"
   }
 ]
