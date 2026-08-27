@@ -16,30 +16,30 @@ document$.subscribe(function () {
     return Object.assign({ id: "local-existing-" + index }, suggestion)
   })
   const exampleSuggestions = [
-    { id: "example-faq", title: "Add a searchable FAQ for common support questions", details: "Example suggestion | Shared support idea" },
-    { id: "example-escalation", title: "Add a quick reference for escalation paths", details: "Example suggestion | Shared support idea" },
-    { id: "example-owners", title: "Add document owners and review dates", details: "Example suggestion | Shared support idea" },
-    { id: "example-checklist", title: "Add a printable troubleshooting checklist", details: "Example suggestion | Shared support idea" },
-    { id: "example-hours", title: "Add service hours and response expectations", details: "Example suggestion | Shared support idea" },
-    { id: "example-recurring", title: "Add a guide for reporting recurring incidents", details: "Example suggestion | Shared support idea" },
-    { id: "example-glossary", title: "Add a glossary of common ITSD terms", details: "Example suggestion | Shared support idea" },
-    { id: "example-history", title: "Add version history to every document", details: "Example suggestion | Shared support idea" },
-    { id: "example-onboarding", title: "Add a checklist for new team members", details: "Example suggestion | Shared support idea" },
-    { id: "example-quick-start", title: "Add printable quick-start guides", details: "Example suggestion | Shared support idea" },
-    { id: "example-notes", title: "Add examples of well-written ticket notes", details: "Example suggestion | Shared support idea" },
-    { id: "example-known-issues", title: "Add a page for known service issues", details: "Example suggestion | Shared support idea" },
-    { id: "example-categories", title: "Add document categories and filters", details: "Example suggestion | Shared support idea" },
-    { id: "example-summary", title: "Add a monthly documentation update summary", details: "Example suggestion | Shared support idea" },
-    { id: "example-status", title: "Add service status updates to the home page", details: "Example suggestion | Shared support idea" },
-    { id: "example-templates", title: "Add reusable ticket response templates", details: "Example suggestion | Shared support idea" },
-    { id: "example-search-tips", title: "Add search tips for finding older documents", details: "Example suggestion | Shared support idea" },
-    { id: "example-contact", title: "Add contact details for specialist support teams", details: "Example suggestion | Shared support idea" },
-    { id: "example-ownership", title: "Add a way to flag outdated documentation", details: "Example suggestion | Shared support idea" },
-    { id: "example-print", title: "Add printer-friendly versions of key procedures", details: "Example suggestion | Shared support idea" },
-    { id: "example-attachments", title: "Add related-document links to each procedure", details: "Example suggestion | Shared support idea" },
-    { id: "example-feedback", title: "Add a simple feedback prompt to document pages", details: "Example suggestion | Shared support idea" },
-    { id: "example-calendar", title: "Add a calendar of planned maintenance windows", details: "Example suggestion | Shared support idea" },
-    { id: "example-requests", title: "Add a simple documentation change request workflow", details: "Example suggestion | Shared support idea" },
+    { id: "example-faq", category: "Feature request", title: "Add a searchable FAQ for common support questions", details: "Example suggestion | Shared support idea" },
+    { id: "example-escalation", category: "Problem", title: "Add a quick reference for escalation paths", details: "Example suggestion | Shared support idea" },
+    { id: "example-owners", category: "Documentation", title: "Add document owners and review dates", details: "Example suggestion | Shared support idea" },
+    { id: "example-checklist", category: "UI fix", title: "Add a printable troubleshooting checklist", details: "Example suggestion | Shared support idea" },
+    { id: "example-hours", category: "Question", title: "Add service hours and response expectations", details: "Example suggestion | Shared support idea" },
+    { id: "example-recurring", category: "Issue", title: "Add a guide for reporting recurring incidents", details: "Example suggestion | Shared support idea" },
+    { id: "example-glossary", category: "Documentation", title: "Add a glossary of common ITSD terms", details: "Example suggestion | Shared support idea" },
+    { id: "example-history", category: "Feature request", title: "Add version history to every document", details: "Example suggestion | Shared support idea" },
+    { id: "example-onboarding", category: "Feature request", title: "Add a checklist for new team members", details: "Example suggestion | Shared support idea" },
+    { id: "example-quick-start", category: "Documentation", title: "Add printable quick-start guides", details: "Example suggestion | Shared support idea" },
+    { id: "example-notes", category: "Problem", title: "Add examples of well-written ticket notes", details: "Example suggestion | Shared support idea" },
+    { id: "example-known-issues", category: "Issue", title: "Add a page for known service issues", details: "Example suggestion | Shared support idea" },
+    { id: "example-categories", category: "UI fix", title: "Add document categories and filters", details: "Example suggestion | Shared support idea" },
+    { id: "example-summary", category: "Feature request", title: "Add a monthly documentation update summary", details: "Example suggestion | Shared support idea" },
+    { id: "example-status", category: "Issue", title: "Add service status updates to the home page", details: "Example suggestion | Shared support idea" },
+    { id: "example-templates", category: "Feature request", title: "Add reusable ticket response templates", details: "Example suggestion | Shared support idea" },
+    { id: "example-search-tips", category: "Question", title: "Add search tips for finding older documents", details: "Example suggestion | Shared support idea" },
+    { id: "example-contact", category: "Question", title: "Add contact details for specialist support teams", details: "Example suggestion | Shared support idea" },
+    { id: "example-ownership", category: "Problem", title: "Add a way to flag outdated documentation", details: "Example suggestion | Shared support idea" },
+    { id: "example-print", category: "UI fix", title: "Add printer-friendly versions of key procedures", details: "Example suggestion | Shared support idea" },
+    { id: "example-attachments", category: "Documentation", title: "Add related-document links to each procedure", details: "Example suggestion | Shared support idea" },
+    { id: "example-feedback", category: "Accessibility", title: "Add a simple feedback prompt to document pages", details: "Example suggestion | Shared support idea" },
+    { id: "example-calendar", category: "Feature request", title: "Add a calendar of planned maintenance windows", details: "Example suggestion | Shared support idea" },
+    { id: "example-requests", category: "Issue", title: "Add a simple documentation change request workflow", details: "Example suggestion | Shared support idea" },
   ]
 
   function renderSuggestion(suggestion) {
@@ -83,14 +83,28 @@ document$.subscribe(function () {
     const suggestions = localSuggestions.concat(sharedIssues)
     const visibleSuggestions = suggestions.length ? suggestions : exampleSuggestions
     status.textContent = visibleSuggestions.length + " suggestion" + (visibleSuggestions.length === 1 ? "" : "s")
-    list.replaceChildren(...visibleSuggestions.map(renderSuggestion))
+    const groups = new Map()
+    visibleSuggestions.forEach(function (suggestion) {
+      const category = suggestion.category || "Other"
+      if (!groups.has(category)) groups.set(category, [])
+      groups.get(category).push(suggestion)
+    })
+    list.replaceChildren(...Array.from(groups, function (entry, index) {
+      const section = document.createElement("details")
+      section.className = "itsd-suggestion-group"
+      section.open = index === 0
+      const heading = document.createElement("summary")
+      heading.textContent = entry[0] + " (" + entry[1].length + ")"
+      section.append(heading, ...entry[1].map(renderSuggestion))
+      return section
+    }))
   }
 
   function exportSuggestions() {
     const suggestions = localSuggestions.concat(sharedIssues)
     const exportSuggestions = suggestions.length ? suggestions : exampleSuggestions
     const lines = exportSuggestions.map(function (suggestion) {
-      return suggestion.title + "\r\n" + suggestion.details + "\r\n"
+      return (suggestion.category || "Other") + "\r\n" + suggestion.title + "\r\n" + suggestion.details + "\r\n"
     })
     const blob = new Blob([lines.join("\r\n") || "No suggestions have been submitted yet.\r\n"], { type: "text/plain" })
     const link = document.createElement("a")
