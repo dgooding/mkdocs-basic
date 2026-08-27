@@ -34,8 +34,29 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
     <h2>Feature suggestions</h2>
     <div class="itsd-suggestions-toolbar">
       <p data-suggestions-status>Loading suggestions...</p>
-      <label for="suggestion-date">Filter by date</label>
+      <label for="suggestion-status">Status</label>
+      <select id="suggestion-status" data-suggestion-status aria-label="Filter suggestions by status">
+        <option value="">All statuses</option>
+        <option value="pending">Pending</option>
+        <option value="complete">Complete</option>
+      </select>
+      <label for="suggestion-filter-category">Category</label>
+      <select id="suggestion-filter-category" data-suggestion-filter-category aria-label="Filter suggestions by category">
+        <option value="">All categories</option>
+        <option>Issue</option>
+        <option>Problem</option>
+        <option>UI fix</option>
+        <option>Feature request</option>
+        <option>Documentation</option>
+        <option>Accessibility</option>
+        <option>Question</option>
+        <option>Shared suggestion</option>
+      </select>
+      <label for="suggestion-date">Date</label>
       <input id="suggestion-date" type="date" data-suggestion-date aria-label="Filter suggestions by date">
+      <label for="suggestion-keyword">Search</label>
+      <input id="suggestion-keyword" type="search" data-suggestion-keyword placeholder="Search suggestions" aria-label="Search suggestions">
+      <button class="itsd-filter-reset" type="button" data-suggestions-reset>Clear filters</button>
     </div>
   </div>
   <div class="itsd-suggestions-list" data-suggestions-list>

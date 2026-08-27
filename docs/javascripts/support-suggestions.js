@@ -5,6 +5,10 @@ document$.subscribe(function () {
   const list = view.querySelector("[data-suggestions-list]")
   const status = view.querySelector("[data-suggestions-status]")
   const dateFilter = view.querySelector("[data-suggestion-date]")
+  const statusFilter = view.querySelector("[data-suggestion-status]")
+  const categoryFilter = view.querySelector("[data-suggestion-filter-category]")
+  const keywordFilter = view.querySelector("[data-suggestion-keyword]")
+  const resetFilters = view.querySelector("[data-suggestions-reset]")
   const form = document.querySelector("[data-suggestion-form]")
   const exportButton = document.querySelector("[data-suggestion-export]")
   const endpoint = "https://api.github.com/repos/dgooding/mkdocs-basic/issues?labels=feature-request&state=open&per_page=50"
@@ -119,10 +123,16 @@ document$.subscribe(function () {
 
   function render() {
     const suggestions = localSuggestions.concat(sharedIssues)
-    const allSuggestions = dateFilter.value ? suggestions : exampleSuggestions.concat(suggestions)
-    const visibleSuggestions = dateFilter.value ? allSuggestions.filter(function (suggestion) {
-      return suggestion.created && suggestion.created.indexOf(dateFilter.value) === 0
-    }) : allSuggestions
+    const allSuggestions = exampleSuggestions.concat(suggestions)
+    const visibleSuggestions = allSuggestions.filter(function (suggestion) {
+      const currentStatus = (statuses[suggestion.id] || suggestion.status || "pending")
+      const matchesStatus = !statusFilter.value || currentStatus === statusFilter.value
+      const matchesCategory = !categoryFilter.value || (suggestion.category || "Other") === categoryFilter.value
+      const matchesDate = !dateFilter.value || (suggestion.created && suggestion.created.indexOf(dateFilter.value) === 0)
+      const searchText = keywordFilter.value.trim().toLowerCase()
+      const matchesKeyword = !searchText || (suggestion.title + " " + (suggestion.details || "")).toLowerCase().indexOf(searchText) !== -1
+      return matchesStatus && matchesCategory && matchesDate && matchesKeyword
+    })
     status.textContent = visibleSuggestions.length + " suggestion" + (visibleSuggestions.length === 1 ? "" : "s")
     const groups = new Map()
     visibleSuggestions.forEach(function (suggestion) {
@@ -130,14 +140,21 @@ document$.subscribe(function () {
       if (!groups.has(category)) groups.set(category, [])
       groups.get(category).push(suggestion)
     })
-    list.replaceChildren(...Array.from(groups, function (entry) {
+    const groupElements = Array.from(groups, function (entry) {
       const section = document.createElement("details")
       section.className = "itsd-suggestion-group"
       const heading = document.createElement("summary")
       heading.textContent = entry[0] + " (" + entry[1].length + ")"
       section.append(heading, ...entry[1].map(renderSuggestion))
       return section
-    }))
+    })
+    if (!groupElements.length) {
+      const emptyState = document.createElement("p")
+      emptyState.className = "itsd-suggestions-empty"
+      emptyState.textContent = "No suggestions match these filters."
+      groupElements.push(emptyState)
+    }
+    list.replaceChildren(...groupElements)
   }
 
   function exportSuggestions() {
@@ -169,7 +186,16 @@ document$.subscribe(function () {
     render()
   })
   exportButton.addEventListener("click", exportSuggestions)
-  dateFilter.addEventListener("input", render)
+  ;[dateFilter, statusFilter, categoryFilter, keywordFilter].forEach(function (filter) {
+    filter.addEventListener("input", render)
+  })
+  resetFilters.addEventListener("click", function () {
+    dateFilter.value = ""
+    statusFilter.value = ""
+    categoryFilter.value = ""
+    keywordFilter.value = ""
+    render()
+  })
 
   fetch(endpoint, { headers: { Accept: "application/vnd.github+json" } })
     .then(function (response) {
