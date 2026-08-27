@@ -20,7 +20,7 @@ Use a direct title, short paragraphs, descriptive headings, numbered steps for o
 ## Review checklist
 
 - [ ] The owner and intended audience are clear.
-- [ ] The content has a review date and a change reference.
+- [ ] The content has a review date and a change record.
 - [ ] Links work and point to authoritative sources.
 - [ ] Steps have been tested in the appropriate environment.
 - [ ] Security, privacy, access, and rollback considerations are included.
@@ -35,7 +35,7 @@ Owner: ITSD Service Operations
 Audience: Service desk analysts
 Status: Draft | Approved | Retired
 Review date: YYYY-MM-DD
-Change reference: CHG-0000 or DOC-0000
+Change record: CHG-0000 or DOC-0000
 ```
 
 Metadata is useful only when the team agrees where it belongs and who maintains it. Keep it consistent across related pages.
