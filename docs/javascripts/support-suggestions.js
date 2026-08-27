@@ -11,7 +11,6 @@ document$.subscribe(function () {
   const resetFilters = view.querySelector("[data-suggestions-reset]")
   const form = document.querySelector("[data-suggestion-form]")
   const exportButton = document.querySelector("[data-suggestion-export]")
-  const githubButton = document.querySelector("[data-github-suggestion]")
   const endpoint = "https://api.github.com/repos/dgooding/mkdocs-basic/issues?labels=feature-request&state=open&per_page=50"
   const localStorageKey = "itsd-suggestions"
   const votesStorageKey = "itsd-suggestion-votes"
@@ -177,20 +176,6 @@ document$.subscribe(function () {
     link.click()
     URL.revokeObjectURL(link.href)
   }
-
-  githubButton.addEventListener("click", function () {
-    const data = new FormData(form)
-    const category = data.get("category")
-    const text = data.get("text")
-    if (!category || !text) {
-      form.reportValidity()
-      return
-    }
-    const title = "[" + category + "] " + text
-    const body = "## Suggestion\n\n" + text + "\n\n## Category\n\n" + category
-    const issueUrl = "https://github.com/dgooding/mkdocs-basic/issues/new?template=feature_request.md&title=" + encodeURIComponent(title) + "&body=" + encodeURIComponent(body)
-    window.open(issueUrl, "_blank", "noopener")
-  })
 
   form.addEventListener("submit", function (event) {
     event.preventDefault()

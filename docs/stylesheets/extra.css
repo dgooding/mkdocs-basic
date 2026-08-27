@@ -212,22 +212,6 @@
   margin-top: 0.35rem;
 }
 
-.itsd-suggestion-submit-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.35rem;
-}
-
-.itsd-suggestion-submit-row button {
-  margin-top: 0;
-}
-
-.itsd-github-suggestion {
-  border: 1px solid #b9d1db !important;
-  color: var(--itsd-navy) !important;
-}
-
 .itsd-suggestions {
   border: 1px solid #d8e7ec;
   max-width: 60rem;

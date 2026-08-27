@@ -4,7 +4,7 @@
 
 ## Help shape the documentation
 
-Suggest a feature, improvement, or piece of guidance you would like to see here. Use the local option for a browser-only preview, or send it to GitHub to make it a shared suggestion the project can review.
+Suggest a feature, improvement, or piece of guidance you would like to see here. Suggestions are stored in this browser and appear immediately on this page.
 
 </div>
 
@@ -26,10 +26,7 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
   </select>
   <label for="suggestion-text">Suggestion or problem</label>
   <textarea id="suggestion-text" name="text" maxlength="500" required></textarea>
-  <div class="itsd-suggestion-submit-row">
-    <button class="md-button md-button--primary" type="submit">Into the Void it goes!</button>
-    <button class="md-button itsd-github-suggestion" type="button" data-github-suggestion>Submit to GitHub</button>
-  </div>
+  <button class="md-button md-button--primary" type="submit">Into the Void it goes!</button>
 </form>
 
 <section class="itsd-suggestions" data-suggestions-view>
@@ -69,6 +66,6 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 
 <div class="itsd-status" markdown>
 
-The local action stores suggestions and status changes in this browser. Submit to GitHub to create a shared issue that can be reviewed and discussed by the project.
+Suggestions, votes, and status changes are stored in this browser so the site remains fully static and GitHub Pages compatible.
 
 </div>
