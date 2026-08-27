@@ -6,13 +6,13 @@
 
 Find documents by name, file type, or category. Select a document title to open it.
 
-These files are hosted by github and you have full access, please don't modify them yet... still need to figure out how to get this on AzDo OpenShift.
+These files are hosted centrally and you have full access, please don't modify them yet... still need to figure out how to get this on AzDo OpenShift.
 
 </div>
 
 <div class="itsd-library-actions">
 	<a class="md-button md-button--primary" href="upload-documents.html">Upload a document</a>
-	<a class="md-button" href="https://github.com/dgooding/mkdocs-basic/tree/main/docs" target="_blank" rel="noopener">Manage documents on GitHub</a>
+	<a class="md-button" href="https://github.com/dgooding/mkdocs-basic/tree/main/docs" target="_blank" rel="noopener">Manage documents</a>
 </div>
 
 <div class="itsd-library-controls" data-document-library-controls>
@@ -53,7 +53,7 @@ These files are hosted by github and you have full access, please don't modify t
 				<th scope="col">Document</th>
 				<th scope="col">Category</th>
 				<th scope="col">Type</th>
-				<th scope="col">GitHub action</th>
+				<th scope="col">Actions</th>
 			</tr>
 		</thead>
 		<tbody data-document-library-results></tbody>
@@ -64,6 +64,6 @@ These files are hosted by github and you have full access, please don't modify t
 
 <div class="itsd-status" markdown>
 
-**Deleting documents:** Delete on GitHub opens a confirmation page in the repository. You may need to sign in, and no file is removed until an authorized user commits the deletion. Use **Manage documents on GitHub** to review or remove several files.
+**Deleting documents:** Delete opens a confirmation page in the source repository. You may need to sign in, and no file is removed until an authorized user commits the deletion. Use **Manage documents** to review or remove several files.
 
 </div>

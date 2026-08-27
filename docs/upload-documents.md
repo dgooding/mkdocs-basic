@@ -4,7 +4,7 @@
 
 ## Add to the shared library
 
-Upload one or more files to GitHub and they will appear in the ITSD documentation site after publishing.
+Upload one or more files and they will appear in the ITSD documentation site after publishing.
 
 </div>
 
@@ -14,7 +14,7 @@ Upload one or more files to GitHub and they will appear in the ITSD documentatio
 
 1. Select **Upload a document** above.
 2. Choose one or more Markdown files from your computer.
-3. Select **Commit changes** at the bottom of the GitHub page.
+3. Select **Commit changes** at the bottom of the upload page.
 
 <div class="itsd-status" markdown>
 
