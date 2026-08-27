@@ -1,6 +1,9 @@
 document$.subscribe(function () {
   const searchInput = document.querySelector('[data-md-component="search-query"]') || document.querySelector('.md-header input[type="search"]')
-  if (!searchInput || searchInput.dataset.resultsPageBound || document.querySelector("[data-document-search-view]")) return
+  if (!searchInput || document.querySelector("[data-document-search-view]")) return
+
+  searchInput.value = ""
+  if (searchInput.dataset.resultsPageBound) return
 
   searchInput.dataset.resultsPageBound = "true"
 
