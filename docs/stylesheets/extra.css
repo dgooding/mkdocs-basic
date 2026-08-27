@@ -15,22 +15,37 @@
   white-space: nowrap;
 }
 
+.md-header__source {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+.md-source {
+  width: 1.1rem;
+}
+
+.md-source__repository {
+  display: none;
+}
+
 .itsd-header-tools {
   align-items: center;
   display: inline-flex;
   gap: 0;
-  margin-left: 0.15rem;
+  margin-left: 0;
 }
 
 .itsd-header-tools .md-header__button,
 .itsd-change-log-link {
-  height: 1.45rem;
-  width: 1.45rem;
+  height: 1.1rem;
+  width: 1.1rem;
 }
 
 .itsd-header-tools [data-md-component="palette"] {
   display: inline-flex;
-  transform: scale(0.68);
+  transform: scale(0.55);
   transform-origin: center;
 }
 
@@ -47,8 +62,8 @@
 
 .itsd-change-log-link svg {
   fill: currentColor;
-  height: 0.8rem;
-  width: 0.8rem;
+  height: 0.65rem;
+  width: 0.65rem;
 }
 
 .md-tabs {
