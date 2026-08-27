@@ -43,10 +43,10 @@ document$.subscribe(function () {
     const words = title.toLowerCase().split(/\s+/).filter(Boolean)
     return Math.max.apply(null, words.map(function (word) {
       const normalizedWord = normalize(word)
-      if (normalizedWord.includes(normalizedTerm) || normalizedTerm.includes(normalizedWord)) return 35
+      if (normalizedWord.includes(normalizedTerm) || normalizedTerm.includes(normalizedWord)) return 150
       const distance = editDistance(normalizedTerm, normalizedWord)
       const tolerance = normalizedTerm.length >= 7 ? 2 : 1
-      return distance <= tolerance ? 30 - distance * 8 : 0
+      return distance <= tolerance ? 140 - distance * 20 : 0
     })) || 0
   }
 
