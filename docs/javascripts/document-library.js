@@ -8,7 +8,6 @@ document$.subscribe(function () {
   const filters = [...document.querySelectorAll("[data-document-type]")]
   const summary = document.querySelector("[data-document-library-summary]")
   const pagination = document.querySelector("[data-document-library-pagination]")
-  const deleteAll = document.querySelector("[data-delete-all-documents]")
   const pageSize = 25
   let documents = []
   let activeType = "all"
@@ -30,8 +29,10 @@ document$.subscribe(function () {
     page = Math.min(page, totalPages)
     const visiblePage = visible.slice((page - 1) * pageSize, page * pageSize)
 
-    summary.textContent = visible.length + (visible.length === 1 ? " document" : " documents")
-    results.replaceChildren(...visiblePage.map(function (item) {
+    summary.textContent = visible.length === documents.length
+      ? visible.length + (visible.length === 1 ? " document" : " documents")
+      : "Showing " + visible.length + " of " + documents.length + " documents"
+    const rows = visiblePage.map(function (item) {
       const row = document.createElement("tr")
       const documentCell = document.createElement("td")
       const link = document.createElement("a")
@@ -45,17 +46,27 @@ document$.subscribe(function () {
       const actionsCell = document.createElement("td")
       const deleteLink = document.createElement("a")
       deleteLink.className = "itsd-document-delete"
-      deleteLink.href = "https://github.com/dgooding/mkdocs-basic/edit/main/docs/" + item.path.split("/").map(encodeURIComponent).join("/")
+      deleteLink.href = "https://github.com/dgooding/mkdocs-basic/delete/main/docs/" + item.path.split("/").map(encodeURIComponent).join("/")
       deleteLink.target = "_blank"
       deleteLink.rel = "noopener"
-      deleteLink.textContent = "Delete"
+      deleteLink.textContent = "Delete on GitHub"
       deleteLink.addEventListener("click", function (event) {
-        if (!window.confirm("Sign in to GitHub and commit the deletion of '" + item.name + "'?")) event.preventDefault()
+        if (!window.confirm("Open GitHub to review and commit the deletion of '" + item.name + "'?")) event.preventDefault()
       })
       actionsCell.append(deleteLink)
       row.append(documentCell, categoryCell, typeCell, actionsCell)
       return row
-    }))
+    })
+    if (!rows.length) {
+      const row = document.createElement("tr")
+      const cell = document.createElement("td")
+      cell.className = "itsd-library-empty"
+      cell.colSpan = 4
+      cell.textContent = "No documents match these filters."
+      row.append(cell)
+      rows.push(row)
+    }
+    results.replaceChildren(...rows)
 
     pagination.replaceChildren()
     if (totalPages > 1) {
@@ -77,7 +88,10 @@ document$.subscribe(function () {
     page = 1
     render()
   })
-  sort.addEventListener("change", render)
+  sort.addEventListener("change", function () {
+    page = 1
+    render()
+  })
   category.addEventListener("change", function () {
     activeCategory = category.value
     page = 1
@@ -94,12 +108,11 @@ document$.subscribe(function () {
     })
   })
 
-  deleteAll.addEventListener("click", function (event) {
-    if (!window.confirm("Sign in to GitHub and commit the deletion of the selected documents? You will review each deletion there.")) event.preventDefault()
-  })
-
   fetch(new URL("assets/document-library.json", document.baseURI))
-    .then(function (response) { return response.json() })
+    .then(function (response) {
+      if (!response.ok) throw new Error("Unable to load document library")
+      return response.json()
+    })
     .then(function (items) {
       documents = items
       Array.from(new Set(documents.map(function (item) { return item.category || "Other" })))
