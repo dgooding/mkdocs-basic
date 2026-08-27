@@ -78,10 +78,6 @@ Updates to job minimums via HR express
 
 Architecture diagrams should be maintained in Draw.IO format and stored alongside this document.
 
-![](assets/promotion-forecast-power-app-_2_-image-1.png)
-
-![](assets/promotion-forecast-power-app-_2_-image-2.png)
-
 **Infrastructure Details**
 
 Fully cloud-hosted (Microsoft 365)
