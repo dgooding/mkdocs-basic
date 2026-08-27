@@ -20,11 +20,41 @@ document$.subscribe(function () {
     return element.textContent.replace(/\s+/g, " ").trim()
   }
 
+  function normalize(value) {
+    return value.toLowerCase().replace(/[^a-z0-9]+/g, "")
+  }
+
+  function editDistance(first, second) {
+    const previous = Array.from({ length: second.length + 1 }, function (_, index) { return index })
+    for (let firstIndex = 1; firstIndex <= first.length; firstIndex += 1) {
+      const current = [firstIndex]
+      for (let secondIndex = 1; secondIndex <= second.length; secondIndex += 1) {
+        const substitution = previous[secondIndex - 1] + (first[firstIndex - 1] === second[secondIndex - 1] ? 0 : 1)
+        current.push(Math.min(current[secondIndex - 1] + 1, previous[secondIndex] + 1, substitution))
+      }
+      previous.splice(0, previous.length, ...current)
+    }
+    return previous[second.length]
+  }
+
+  function fuzzyTitleScore(title, term) {
+    const normalizedTerm = normalize(term)
+    if (normalizedTerm.length < 3) return 0
+    const words = title.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean)
+    return Math.max.apply(null, words.map(function (word) {
+      const normalizedWord = normalize(word)
+      if (normalizedWord.includes(normalizedTerm) || normalizedTerm.includes(normalizedWord)) return 35
+      const distance = editDistance(normalizedTerm, normalizedWord)
+      const tolerance = normalizedTerm.length >= 7 ? 2 : 1
+      return distance <= tolerance ? 30 - distance * 8 : 0
+    })) || 0
+  }
+
   function score(item, terms) {
     const title = item.title.toLowerCase()
     const text = stripHtml(item.text).toLowerCase()
     return terms.reduce(function (total, term) {
-      return total + (title.includes(term) ? 100 : 0) + (text.split(term).length - 1)
+      return total + (title.includes(term) ? 100 : fuzzyTitleScore(title, term)) + (text.split(term).length - 1)
     }, 0)
   }
 
