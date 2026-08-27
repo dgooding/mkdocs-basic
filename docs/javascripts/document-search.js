@@ -167,6 +167,7 @@ document$.subscribe(function () {
       const libraryByUrl = new Map(library.map(function (item) { return [item.url, item] }))
       searchDocuments = index
         .filter(function (item) {
+          if (item.location.includes("#")) return false
           const libraryItem = libraryByUrl.get(decodeURIComponent(item.location.split("#")[0]))
           return libraryItem && !siteDocumentPaths.has(libraryItem.path)
         })
