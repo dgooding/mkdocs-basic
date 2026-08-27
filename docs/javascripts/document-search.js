@@ -225,6 +225,7 @@ document$.subscribe(function () {
       if (requestedQuery) {
         query.value = requestedQuery
         render()
+        query.value = ""
       }
     })
     .catch(function () {
