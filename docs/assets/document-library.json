@@ -8,6 +8,14 @@
     "category": "Technical Documentation"
   },
   {
+    "name": "Guide - Frontline Escalation",
+    "path": "Guide - Frontline Escalation.pdf",
+    "url": "Guide - Frontline Escalation.pdf",
+    "type": "PDF",
+    "typeKey": "pdf",
+    "category": "Reference"
+  },
+  {
     "name": "Guide - HCL Notes",
     "path": "Guide - HCL Notes.pdf",
     "url": "Guide - HCL Notes.pdf",
