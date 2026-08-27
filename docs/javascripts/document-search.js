@@ -129,13 +129,13 @@ document$.subscribe(function () {
       const library = data[1]
       const libraryByUrl = new Map(library.map(function (item) { return [item.url, item] }))
       searchDocuments = index
-        .filter(function (item) { return libraryByUrl.has(item.location.split("#")[0]) })
+        .filter(function (item) { return libraryByUrl.has(decodeURIComponent(item.location.split("#")[0])) })
         .map(function (item) {
-          const libraryItem = libraryByUrl.get(item.location.split("#")[0])
+          const libraryItem = libraryByUrl.get(decodeURIComponent(item.location.split("#")[0]))
           return { title: item.title, text: item.text, type: libraryItem.type, location: item.location }
         })
       library.filter(function (item) { return item.type === "PDF" }).forEach(function (item) {
-        searchDocuments.push({ title: item.name, text: "", type: item.type, location: item.url })
+        searchDocuments.push({ title: item.name, text: "", type: item.type, location: encodeURI(item.url) })
       })
     })
     .catch(function () {
