@@ -43,6 +43,7 @@ document$.subscribe(function () {
     const words = title.toLowerCase().split(/\s+/).filter(Boolean)
     return Math.max.apply(null, words.map(function (word) {
       const normalizedWord = normalize(word)
+      if (!normalizedWord) return 0
       if (normalizedWord.includes(normalizedTerm) || normalizedTerm.includes(normalizedWord)) return 150
       const distance = editDistance(normalizedTerm, normalizedWord)
       const tolerance = normalizedTerm.length >= 7 ? 2 : 1
