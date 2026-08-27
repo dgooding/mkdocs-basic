@@ -177,9 +177,53 @@ document$.subscribe(function () {
     URL.revokeObjectURL(link.href)
   }
 
+  function playShredderSound() {
+    const AudioContext = window.AudioContext || window.webkitAudioContext
+    if (!AudioContext) return
+    try {
+      const audioContext = new AudioContext()
+      const now = audioContext.currentTime
+      const duration = 0.45
+      const noiseBuffer = audioContext.createBuffer(1, audioContext.sampleRate * duration, audioContext.sampleRate)
+      const noiseData = noiseBuffer.getChannelData(0)
+      for (let index = 0; index < noiseData.length; index += 1) {
+        noiseData[index] = Math.random() * 2 - 1
+      }
+      const noise = audioContext.createBufferSource()
+      const noiseFilter = audioContext.createBiquadFilter()
+      const noiseGain = audioContext.createGain()
+      noise.buffer = noiseBuffer
+      noiseFilter.type = "bandpass"
+      noiseFilter.frequency.setValueAtTime(1200, now)
+      noiseFilter.frequency.exponentialRampToValueAtTime(3200, now + duration)
+      noiseGain.gain.setValueAtTime(0.001, now)
+      noiseGain.gain.exponentialRampToValueAtTime(0.16, now + 0.04)
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, now + duration)
+      noise.connect(noiseFilter).connect(noiseGain).connect(audioContext.destination)
+      noise.start(now)
+      noise.stop(now + duration)
+
+      const motor = audioContext.createOscillator()
+      const motorGain = audioContext.createGain()
+      motor.type = "sawtooth"
+      motor.frequency.setValueAtTime(95, now)
+      motor.frequency.exponentialRampToValueAtTime(38, now + duration)
+      motorGain.gain.setValueAtTime(0.001, now)
+      motorGain.gain.exponentialRampToValueAtTime(0.035, now + 0.03)
+      motorGain.gain.exponentialRampToValueAtTime(0.001, now + duration)
+      motor.connect(motorGain).connect(audioContext.destination)
+      motor.start(now)
+      motor.stop(now + duration)
+      motor.addEventListener("ended", function () { audioContext.close() })
+    } catch (error) {
+      return
+    }
+  }
+
   form.addEventListener("submit", function (event) {
     event.preventDefault()
     const data = new FormData(form)
+    playShredderSound()
     localSuggestions.unshift({
       id: "local-" + Date.now(),
       title: data.get("text"),
