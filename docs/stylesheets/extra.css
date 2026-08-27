@@ -159,3 +159,29 @@
 [data-md-color-scheme="slate"] .itsd-status {
   background: #173c39;
 }
+
+@media screen and (max-width: 76.1875em) {
+  .md-main__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .md-sidebar--secondary {
+    display: none;
+  }
+
+  .md-content {
+    min-width: 0;
+  }
+}
+
+@media screen and (max-width: 44.9375em) {
+  .itsd-intro,
+  .itsd-page-intro {
+    margin-top: 0.75rem;
+  }
+
+  .itsd-actions > ul,
+  .itsd-library > ul {
+    grid-template-columns: 1fr;
+  }
+}
