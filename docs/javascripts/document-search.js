@@ -29,6 +29,15 @@ document$.subscribe(function () {
     materialSearchToggle.checked = false
   }
 
+  query.addEventListener("pointerdown", function () {
+    if (!query.value) return
+    query.value = ""
+    const url = new URL(location.href)
+    url.searchParams.delete("q")
+    history.replaceState({}, "", url)
+    query.dispatchEvent(new Event("input", { bubbles: true }))
+  })
+
   function stripHtml(value) {
     const element = document.createElement("div")
     element.innerHTML = value || ""
