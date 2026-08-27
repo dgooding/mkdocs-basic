@@ -33,8 +33,6 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 
 <div class="itsd-status" markdown>
 
-**How voting works**
-
-Select **Vote +1** beside a shared suggestion to open it on GitHub, then add a thumbs-up reaction. New suggestions typed here appear immediately in this browser. GitHub keeps its shared suggestions and votes available to everyone.
+New suggestions typed here appear immediately in this browser. Shared suggestions can still be reviewed through GitHub.
 
 </div>

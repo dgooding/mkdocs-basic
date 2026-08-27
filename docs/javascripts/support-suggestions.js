@@ -10,6 +10,12 @@ document$.subscribe(function () {
   const localStorageKey = "itsd-suggestions"
   let sharedIssues = []
   let localSuggestions = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
+  const exampleSuggestions = [
+    { title: "Add a searchable FAQ for common support questions", details: "Example suggestion | Shared support idea" },
+    { title: "Add a quick reference for escalation paths", details: "Example suggestion | Shared support idea" },
+    { title: "Add document owners and review dates", details: "Example suggestion | Shared support idea" },
+    { title: "Add a printable troubleshooting checklist", details: "Example suggestion | Shared support idea" },
+  ]
 
   function renderSuggestion(suggestion) {
     const item = document.createElement("article")
@@ -34,26 +40,15 @@ document$.subscribe(function () {
     details.textContent = suggestion.details
     content.append(title, details)
 
-    if (suggestion.url) {
-      const vote = document.createElement("a")
-      vote.className = "itsd-suggestion-vote"
-      vote.href = suggestion.url
-      vote.target = "_blank"
-      vote.rel = "noopener"
-      vote.setAttribute("aria-label", "Vote +1 for " + suggestion.title + " on GitHub")
-      vote.innerHTML = "<strong>+1</strong><span>" + suggestion.votes + "</span>"
-      item.append(content, vote)
-    } else {
-      item.append(content)
-    }
+    item.append(content)
     return item
   }
 
   function render() {
     const suggestions = localSuggestions.concat(sharedIssues)
-    status.textContent = suggestions.length ? suggestions.length + " suggestion" + (suggestions.length === 1 ? "" : "s") : "No suggestions yet"
-    list.replaceChildren(...(suggestions.length ? suggestions.map(renderSuggestion) : [document.createElement("p")]))
-    if (!suggestions.length) list.firstChild.textContent = "No feature suggestions have been submitted yet."
+    const visibleSuggestions = suggestions.length ? suggestions : exampleSuggestions
+    status.textContent = visibleSuggestions.length + " example suggestion" + (visibleSuggestions.length === 1 ? "" : "s")
+    list.replaceChildren(...visibleSuggestions.map(renderSuggestion))
   }
 
   function exportSuggestions() {
@@ -90,7 +85,7 @@ document$.subscribe(function () {
     })
     .then(function (issues) {
       sharedIssues = issues.map(function (issue) {
-        return { title: issue.title, details: "Suggested by " + issue.user.login + " | " + issue.comments + " comments", url: issue.html_url, votes: issue.reactions["+1"] }
+        return { title: issue.title, details: "Suggested by " + issue.user.login + " | " + issue.comments + " comments", url: issue.html_url }
       })
       render()
     })
