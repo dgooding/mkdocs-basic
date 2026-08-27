@@ -81,7 +81,7 @@ document$.subscribe(function () {
 
   function render() {
     const suggestions = localSuggestions.concat(sharedIssues)
-    const visibleSuggestions = suggestions.length ? suggestions : exampleSuggestions
+    const visibleSuggestions = exampleSuggestions.concat(suggestions)
     status.textContent = visibleSuggestions.length + " suggestion" + (visibleSuggestions.length === 1 ? "" : "s")
     const groups = new Map()
     visibleSuggestions.forEach(function (suggestion) {
