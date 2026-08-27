@@ -62,7 +62,7 @@ document$.subscribe(function () {
     }
 
     const details = document.createElement("p")
-    details.textContent = suggestion.details
+    details.textContent = (suggestion.category || "Suggestion") + " | " + suggestion.details
     content.append(title, details)
 
     const vote = document.createElement("button")
@@ -106,7 +106,8 @@ document$.subscribe(function () {
     localSuggestions.unshift({
       id: "local-" + Date.now(),
       title: data.get("text"),
-      details: "Suggested by " + data.get("name") + " | Local browser suggestion",
+      category: data.get("category"),
+      details: "Local browser suggestion",
       created: new Date().toISOString(),
     })
     localStorage.setItem(localStorageKey, JSON.stringify(localSuggestions))
@@ -122,7 +123,7 @@ document$.subscribe(function () {
     })
     .then(function (issues) {
       sharedIssues = issues.map(function (issue) {
-        return { id: "issue-" + issue.number, title: issue.title, details: "Suggested by " + issue.user.login + " | " + issue.comments + " comments", url: issue.html_url }
+        return { id: "issue-" + issue.number, title: issue.title, category: "Shared suggestion", details: issue.comments + " comments", url: issue.html_url }
       })
       render()
     })

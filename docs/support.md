@@ -14,8 +14,17 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 </div>
 
 <form class="itsd-suggestion-form" data-suggestion-form>
-  <label for="suggestion-name">First name</label>
-  <input id="suggestion-name" name="name" type="text" maxlength="40" required>
+  <label for="suggestion-category">Category</label>
+  <select id="suggestion-category" name="category" required>
+    <option value="">Choose a category</option>
+    <option>Issue</option>
+    <option>Problem</option>
+    <option>UI fix</option>
+    <option>Feature request</option>
+    <option>Documentation</option>
+    <option>Accessibility</option>
+    <option>Question</option>
+  </select>
   <label for="suggestion-text">Suggestion or problem</label>
   <textarea id="suggestion-text" name="text" maxlength="500" required></textarea>
   <button class="md-button md-button--primary" type="submit">Post suggestion</button>
