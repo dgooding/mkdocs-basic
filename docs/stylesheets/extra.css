@@ -112,9 +112,6 @@
   opacity: 1;
 }
 
-@media screen and (min-width: 60em) {
-}
-
 .md-main {
   background: linear-gradient(180deg, var(--itsd-mist) 0, #fff 20rem);
 }
