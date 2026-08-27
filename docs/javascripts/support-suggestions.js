@@ -89,10 +89,9 @@ document$.subscribe(function () {
       if (!groups.has(category)) groups.set(category, [])
       groups.get(category).push(suggestion)
     })
-    list.replaceChildren(...Array.from(groups, function (entry, index) {
+    list.replaceChildren(...Array.from(groups, function (entry) {
       const section = document.createElement("details")
       section.className = "itsd-suggestion-group"
-      section.open = index === 0
       const heading = document.createElement("summary")
       heading.textContent = entry[0] + " (" + entry[1].length + ")"
       section.append(heading, ...entry[1].map(renderSuggestion))
