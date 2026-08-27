@@ -26,5 +26,12 @@
     "url": "search.html",
     "type": "Markdown",
     "typeKey": "md"
+  },
+  {
+    "name": "Support and Suggestions",
+    "path": "support.md",
+    "url": "support.html",
+    "type": "Markdown",
+    "typeKey": "md"
   }
 ]
