@@ -76,6 +76,7 @@ nav:
   - Home: index.md
   - Getting Started: guides/getting-started.md
   - How-to Guides: how-to/contribute.md
+  - Upload Documents: how-to/upload-documents.md
   - Reference: reference/document-standards.md
   - Policies: policies/security.md
   - Browse by Topic: tags.md
