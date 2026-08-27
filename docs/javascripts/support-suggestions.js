@@ -81,25 +81,25 @@ document$.subscribe(function () {
 
     const actions = document.createElement("div")
     actions.className = "itsd-suggestion-controls"
+    const statusButton = document.createElement("button")
+    statusButton.className = "itsd-suggestion-status"
+    statusButton.type = "button"
+    const isComplete = (statuses[suggestion.id] || suggestion.status) === "complete"
+    statusButton.setAttribute("aria-label", isComplete ? "Mark suggestion as pending" : "Mark suggestion as complete")
+    statusButton.title = statusButton.getAttribute("aria-label")
+    statusButton.innerHTML = isComplete ? "<span aria-hidden=\"true\">&#10003;</span> Complete" : "<span aria-hidden=\"true\">&#9675;</span> Pending"
+    statusButton.addEventListener("click", function () {
+      const nextStatus = isComplete ? "pending" : "complete"
+      statuses[suggestion.id] = nextStatus
+      localStorage.setItem(statusesStorageKey, JSON.stringify(statuses))
+      suggestion.status = nextStatus
+      if (suggestion.id.indexOf("local-") === 0 || suggestion.id.indexOf("local-existing-") === 0) {
+        localStorage.setItem(localStorageKey, JSON.stringify(localSuggestions))
+      }
+      render()
+    })
+    actions.append(statusButton)
     if (suggestion.id.indexOf("local-") === 0 || suggestion.id.indexOf("local-existing-") === 0) {
-      const statusButton = document.createElement("button")
-      statusButton.className = "itsd-suggestion-status"
-      statusButton.type = "button"
-      const isComplete = (statuses[suggestion.id] || suggestion.status) === "complete"
-      statusButton.setAttribute("aria-label", isComplete ? "Mark suggestion as pending" : "Mark suggestion as complete")
-      statusButton.title = statusButton.getAttribute("aria-label")
-      statusButton.innerHTML = isComplete ? "<span aria-hidden=\"true\">&#10003;</span>" : "<span aria-hidden=\"true\">&#9675;</span>"
-      statusButton.addEventListener("click", function () {
-        const nextStatus = isComplete ? "pending" : "complete"
-        statuses[suggestion.id] = nextStatus
-        localStorage.setItem(statusesStorageKey, JSON.stringify(statuses))
-        suggestion.status = nextStatus
-        if (suggestion.id.indexOf("local-") === 0 || suggestion.id.indexOf("local-existing-") === 0) {
-          localStorage.setItem(localStorageKey, JSON.stringify(localSuggestions))
-        }
-        render()
-      })
-
       const deleteButton = document.createElement("button")
       deleteButton.className = "itsd-suggestion-delete"
       deleteButton.type = "button"
@@ -111,7 +111,7 @@ document$.subscribe(function () {
         localStorage.setItem(localStorageKey, JSON.stringify(localSuggestions))
         render()
       })
-      actions.append(statusButton, deleteButton)
+      actions.append(deleteButton)
     }
     item.append(vote, content, actions)
     return item
