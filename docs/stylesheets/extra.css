@@ -71,6 +71,11 @@
   display: block;
 }
 
+.md-header,
+.md-tabs {
+  background-color: var(--itsd-navy);
+}
+
 .md-sidebar--primary,
 .md-header label[for="__drawer"] {
   display: none;

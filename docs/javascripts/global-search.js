@@ -1,6 +1,6 @@
 document$.subscribe(function () {
   const article = document.querySelector(".md-content article")
-  if (article && !document.querySelector(".itsd-global-search") && !document.querySelector(".itsd-search-workspace") && !document.querySelector(".itsd-home-search")) {
+  if (article && !document.querySelector(".itsd-global-search") && !document.querySelector(".itsd-home-search")) {
     const panel = document.createElement("form")
     panel.className = "itsd-global-search"
     panel.action = new URL("search.html", document.baseURI).href
