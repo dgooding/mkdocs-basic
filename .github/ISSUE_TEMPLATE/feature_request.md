@@ -1,6 +1,7 @@
 ---
 name: Feature suggestion
-about: Suggest a feature or improvement for the ITSD Documentation site	itle: ""
+about: Suggest a feature or improvement for the ITSD Documentation site
+title: ""
 labels: feature-request
 assignees: ""
 ---
