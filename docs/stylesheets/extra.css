@@ -833,6 +833,10 @@
   width: 100%;
 }
 
+.itsd-search-page .md-search__scrollwrap {
+  display: none;
+}
+
 .itsd-search-layout {
   border: 1px solid #d8e7ec;
   display: grid;
