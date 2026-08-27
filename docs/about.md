@@ -4,7 +4,9 @@ tags:
   - governance
 ---
 
-# About ITSD Documentation
+# About This Site
+
+I only added these pages cause 2001 highschool told me too.
 
 <div class="itsd-page-intro" markdown>
 
