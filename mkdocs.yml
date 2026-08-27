@@ -85,7 +85,6 @@ extra_javascript:
 nav:
   - Home: index.md
   - Documents: uploaded-documents.md
-  - Workflow: workflow.md
   - About: about.md
   - Contact: contact.md
   
