@@ -128,6 +128,9 @@ document$.subscribe(function () {
   }
 
   function render() {
+    const openCategories = new Set(Array.from(list.querySelectorAll("details[open] summary"), function (heading) {
+      return heading.textContent.replace(/ \(\d+\)$/, "")
+    }))
     const suggestions = localSuggestions.concat(sharedIssues)
     const allSuggestions = exampleSuggestions.concat(suggestions)
     const visibleSuggestions = allSuggestions.filter(function (suggestion) {
@@ -151,6 +154,7 @@ document$.subscribe(function () {
       section.className = "itsd-suggestion-group"
       const heading = document.createElement("summary")
       heading.textContent = entry[0] + " (" + entry[1].length + ")"
+      section.open = openCategories.has(entry[0])
       section.append(heading, ...entry[1].map(renderSuggestion))
       return section
     })
