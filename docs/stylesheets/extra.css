@@ -520,6 +520,54 @@
   margin: 0;
 }
 
+.itsd-about-brief {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1.5rem 0 2rem;
+  max-width: 60rem;
+}
+
+.itsd-about-brief > div {
+  background: rgb(255 255 255 / 0.72);
+  border-top: 0.25rem solid var(--itsd-blue);
+  box-shadow: 0 0.2rem 0.65rem rgb(18 61 90 / 0.08);
+  padding: 1rem 1.1rem;
+}
+
+.itsd-about-brief h3 {
+  color: var(--itsd-navy);
+  font-size: 1rem;
+  margin: 0 0 0.45rem;
+}
+
+.itsd-about-brief ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.itsd-about-brief li {
+  margin-bottom: 0.3rem;
+}
+
+.itsd-about-maintenance {
+  background: #e8f6f3;
+  border-left: 0.25rem solid var(--itsd-teal);
+  margin: 1.5rem 0;
+  max-width: 48rem;
+  padding: 0.85rem 1rem;
+}
+
+.itsd-about-maintenance p {
+  margin: 0.2rem 0 0;
+}
+
+@media screen and (max-width: 48rem) {
+  .itsd-about-brief {
+    grid-template-columns: 1fr;
+  }
+}
+
 .itsd-actions {
   max-width: 50rem;
 }
