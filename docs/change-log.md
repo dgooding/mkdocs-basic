@@ -38,6 +38,7 @@ This page records the iterative development of the ITSD Documentation site.
 - Added a repository Issue template for new suggestions and a positive `+1` voting link that opens each suggestion on GitHub.
 - Verified the live page loads the shared issue list and displays a clear empty state when no suggestions are open.
 - Added four browser-local example suggestions for testing, first-name attribution, immediate posting, and plain-text export; removed the voting controls.
+- Added category-specific expandable dropdown sections and corrected rendering so examples remain visible alongside posted suggestions.
 
 ### User Experience
 
