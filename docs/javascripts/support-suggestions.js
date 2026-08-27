@@ -4,14 +4,17 @@ document$.subscribe(function () {
 
   const list = view.querySelector("[data-suggestions-list]")
   const status = view.querySelector("[data-suggestions-status]")
+  const dateFilter = view.querySelector("[data-suggestion-date]")
   const form = document.querySelector("[data-suggestion-form]")
   const exportButton = document.querySelector("[data-suggestion-export]")
   const endpoint = "https://api.github.com/repos/dgooding/mkdocs-basic/issues?labels=feature-request&state=open&per_page=50"
   const localStorageKey = "itsd-suggestions"
   const votesStorageKey = "itsd-suggestion-votes"
+  const statusesStorageKey = "itsd-suggestion-statuses"
   let sharedIssues = []
   let localSuggestions = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
   let votes = JSON.parse(localStorage.getItem(votesStorageKey) || "{}")
+  let statuses = JSON.parse(localStorage.getItem(statusesStorageKey) || "{}")
   localSuggestions = localSuggestions.map(function (suggestion, index) {
     return Object.assign({ id: "local-existing-" + index }, suggestion)
   })
@@ -82,13 +85,18 @@ document$.subscribe(function () {
       const statusButton = document.createElement("button")
       statusButton.className = "itsd-suggestion-status"
       statusButton.type = "button"
-      const isComplete = suggestion.status === "complete"
+      const isComplete = (statuses[suggestion.id] || suggestion.status) === "complete"
       statusButton.setAttribute("aria-label", isComplete ? "Mark suggestion as pending" : "Mark suggestion as complete")
       statusButton.title = statusButton.getAttribute("aria-label")
       statusButton.innerHTML = isComplete ? "<span aria-hidden=\"true\">&#10003;</span>" : "<span aria-hidden=\"true\">&#9675;</span>"
       statusButton.addEventListener("click", function () {
-        suggestion.status = isComplete ? "pending" : "complete"
-        localStorage.setItem(localStorageKey, JSON.stringify(localSuggestions))
+        const nextStatus = isComplete ? "pending" : "complete"
+        statuses[suggestion.id] = nextStatus
+        localStorage.setItem(statusesStorageKey, JSON.stringify(statuses))
+        suggestion.status = nextStatus
+        if (suggestion.id.indexOf("local-") === 0 || suggestion.id.indexOf("local-existing-") === 0) {
+          localStorage.setItem(localStorageKey, JSON.stringify(localSuggestions))
+        }
         render()
       })
 
