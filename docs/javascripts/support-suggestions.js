@@ -254,7 +254,7 @@ document$.subscribe(function () {
     issueUrl.searchParams.set("template", "feature_request.md")
     issueUrl.searchParams.set("title", data.get("category") + ": " + data.get("text"))
     issueUrl.searchParams.set("body", "## Category\n\n" + data.get("category") + "\n\n## Suggestion\n\n" + data.get("text"))
-    window.open(issueUrl.toString(), "_blank", "noopener")
+    location.assign(issueUrl.toString())
     form.reset()
   })
   exportButton.addEventListener("click", exportSuggestions)
