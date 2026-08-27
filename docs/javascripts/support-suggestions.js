@@ -11,7 +11,7 @@ document$.subscribe(function () {
   const resetFilters = view.querySelector("[data-suggestions-reset]")
   const form = document.querySelector("[data-suggestion-form]")
   const exportButton = document.querySelector("[data-suggestion-export]")
-  const endpoint = "https://api.github.com/repos/dgooding/mkdocs-basic/issues?labels=feature-request&state=open&per_page=50"
+  const endpoint = "https://api.github.com/repos/dgooding/mkdocs-basic/issues?labels=enhancement&state=open&per_page=50"
   const votesStorageKey = "itsd-suggestion-votes"
   const votedStorageKey = "itsd-suggestion-voted"
   const statusesStorageKey = "itsd-suggestion-statuses"
