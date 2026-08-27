@@ -2,8 +2,6 @@ document$.subscribe(function () {
   const workspace = document.querySelector("[data-document-search-view]")
   if (!workspace) return
 
-  const browseView = document.querySelector("[data-document-browse-view]")
-  const viewButtons = [...document.querySelectorAll("[data-document-view]")]
   const query = document.querySelector("#document-search-query")
   const summary = document.querySelector("[data-document-search-summary]")
   const results = document.querySelector("[data-document-search-results]")
@@ -106,18 +104,6 @@ document$.subscribe(function () {
     reader.innerHTML = "<p>Choose a result to read it here.</p>"
   }
 
-  viewButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      const isSearch = button.dataset.documentView === "search"
-      workspace.hidden = !isSearch
-      browseView.hidden = isSearch
-      viewButtons.forEach(function (entry) {
-        entry.setAttribute("aria-pressed", String(entry === button))
-      })
-      if (isSearch) query.focus()
-    })
-  })
-
   query.addEventListener("input", render)
 
   Promise.all([
@@ -137,6 +123,11 @@ document$.subscribe(function () {
       library.filter(function (item) { return item.type === "PDF" }).forEach(function (item) {
         searchDocuments.push({ title: item.name, text: "", type: item.type, location: encodeURI(item.url) })
       })
+      const requestedQuery = new URLSearchParams(location.search).get("q")
+      if (requestedQuery) {
+        query.value = requestedQuery
+        render()
+      }
     })
     .catch(function () {
       summary.textContent = "Search is unavailable right now."
