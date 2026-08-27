@@ -9,8 +9,8 @@ Find documents by name, file type, or category. Select a document title to open 
 </div>
 
 <div class="itsd-library-actions">
-	<a class="md-button md-button--primary" href="upload-documents.html">Upload a document</a>
-	<a class="md-button" href="https://github.com/dgooding/mkdocs-basic/tree/main/docs" target="_blank" rel="noopener">Manage documents</a>
+	<a class="md-button md-button--primary" href="https://github.com/dgooding/mkdocs-basic/upload/main/docs" target="_blank" rel="noopener">Upload a document</a>
+	<a class="md-button" href="https://github.com/dgooding/mkdocs-basic/tree/main/docs" target="_blank" rel="noopener">Browse files on GitHub</a>
 </div>
 
 <div class="itsd-library-controls" data-document-library-controls>
