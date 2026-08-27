@@ -307,16 +307,29 @@
 }
 
 .itsd-suggestion > summary {
-  color: var(--itsd-navy);
+  background: transparent;
   cursor: pointer;
+  color: var(--itsd-navy);
   font-size: 0.95rem;
-  list-style-position: outside;
-  margin-left: 1rem;
+  font-weight: 600;
+  list-style: none;
+  margin: 0;
   overflow-wrap: anywhere;
+  padding: 0.35rem 1.6rem 0.35rem 0;
 }
 
 .itsd-suggestion > summary:hover {
+  background: transparent;
   color: #076b63;
+}
+
+.itsd-suggestion > summary::before {
+  display: none !important;
+}
+
+.itsd-suggestion[open] > summary {
+  background: #f7fbfc;
+  border-bottom: 1px solid #d8e7ec;
 }
 
 .itsd-suggestion-row {
