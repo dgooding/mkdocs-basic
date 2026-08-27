@@ -7,6 +7,16 @@ document$.subscribe(function () {
   const results = document.querySelector("[data-document-search-results]")
   const reader = document.querySelector("[data-document-search-reader]")
   let searchDocuments = []
+  const siteDocumentPaths = new Set([
+    "about.md",
+    "change-log.md",
+    "contact.md",
+    "index.md",
+    "search.md",
+    "support.md",
+    "upload-documents.md",
+    "uploaded-documents.md",
+  ])
 
   document.body.classList.add("itsd-search-page")
   const materialSearchToggle = document.querySelector('[data-md-toggle="search"]')
@@ -153,7 +163,8 @@ document$.subscribe(function () {
       const libraryByUrl = new Map(library.map(function (item) { return [item.url, item] }))
       searchDocuments = index
         .filter(function (item) {
-          return libraryByUrl.has(decodeURIComponent(item.location.split("#")[0]))
+          const libraryItem = libraryByUrl.get(decodeURIComponent(item.location.split("#")[0]))
+          return libraryItem && !siteDocumentPaths.has(libraryItem.path)
         })
         .map(function (item) {
           const libraryItem = libraryByUrl.get(decodeURIComponent(item.location.split("#")[0]))
