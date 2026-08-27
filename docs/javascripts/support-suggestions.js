@@ -275,7 +275,7 @@ document$.subscribe(function () {
     localSuggestions.unshift({
       id: "local-" + Date.now(),
       title: data.get("text"),
-      category: data.get("category"),
+      category: "Question",
       details: "Local browser comment",
       created: new Date().toISOString(),
     })

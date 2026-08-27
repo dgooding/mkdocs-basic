@@ -13,17 +13,6 @@ Share a feature request, report a problem, or suggest guidance that would make t
 </div>
 
 <form class="itsd-suggestion-form" data-suggestion-form>
-  <label for="suggestion-category">Feedback type</label>
-  <select id="suggestion-category" name="category" required>
-    <option value="">Choose a category</option>
-    <option>Issue</option>
-    <option>Problem</option>
-    <option>UI fix</option>
-    <option>Feature request</option>
-    <option>Documentation</option>
-    <option>Accessibility</option>
-    <option>Question</option>
-  </select>
   <label for="suggestion-text">What should we improve?</label>
   <textarea id="suggestion-text" name="text" maxlength="500" required></textarea>
   <button class="md-button md-button--primary" type="submit">Submit comment</button>
