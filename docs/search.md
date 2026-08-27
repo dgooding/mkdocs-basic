@@ -1,9 +1,11 @@
+<div class="itsd-search-bar itsd-global-search">
+  <label for="document-search-query">Search the knowledge base</label>
+  <input id="document-search-query" type="search" placeholder="Search document titles and content" autocomplete="off">
+</div>
+
 # Search Results
 
 <section class="itsd-search-workspace" data-document-search-view>
-  <div class="itsd-search-bar itsd-global-search">
-    <label for="document-search-query">Search the knowledge base</label>
-    <input id="document-search-query" type="search" placeholder="Search document titles and content" autocomplete="off">
   </div>
   <div class="itsd-search-layout">
     <aside class="itsd-search-results" aria-label="Search results">
