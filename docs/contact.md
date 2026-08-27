@@ -21,4 +21,6 @@ Use your established IT service desk or team communication channel for service r
 
 Found an error or missing detail? Select the edit icon at the top of any page to propose a change through GitHub.
 
+<small>[This site doesn't work but a one shot Google AI Flash site for MkDocs](https://ais-dev-cyekf7zm2pwwsddc2ubzuh-58381161634.us-east1.run.app/mkdocs/)</small>
+
 </div>
