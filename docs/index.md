@@ -37,6 +37,6 @@ Find the procedure, handoff, or service note you need to resolve the next ticket
 
 <div class="itsd-status" markdown>
 
-**A useful habit[\:](https://ais-dev-cyekf7zm2pwwsddc2ubzuh-58381161634.us-east1.run.app/mkdocs/)** If you solve the same problem twice, leave the next person a searchable page instead of another mystery[.](https://egggame.org/)
+**A useful habit:** If you solve the same problem twice, leave the next person a searchable page instead of another mystery.
 
 </div>
