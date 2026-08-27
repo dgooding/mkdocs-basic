@@ -303,6 +303,10 @@
 
 .itsd-suggestion {
   border-bottom: 1px solid #d8e7ec;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: 0;
   padding: 0.65rem 0.85rem;
 }
 
@@ -340,7 +344,11 @@
 }
 
 .itsd-suggestion-group {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
   border-bottom: 1px solid #d8e7ec;
+  margin: 0;
 }
 
 .itsd-suggestion-group:last-child {
