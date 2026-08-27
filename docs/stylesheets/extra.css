@@ -221,6 +221,31 @@
   padding: 0.9rem 1rem;
 }
 
+.itsd-suggestion-group {
+  border-bottom: 1px solid #d8e7ec;
+}
+
+.itsd-suggestion-group:last-child {
+  border-bottom: 0;
+}
+
+.itsd-suggestion-group summary {
+  background: #f1f8f9;
+  color: var(--itsd-navy);
+  cursor: pointer;
+  font-weight: 700;
+  list-style-position: inside;
+  padding: 0.7rem 1rem;
+}
+
+.itsd-suggestion-group summary:hover {
+  background: #e6f2f5;
+}
+
+.itsd-suggestion-group[open] summary {
+  border-bottom: 1px solid #d8e7ec;
+}
+
 .itsd-suggestion:last-child {
   border-bottom: 0;
 }
