@@ -66,6 +66,6 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 
 <div class="itsd-status" markdown>
 
-New suggestions stay in the Recent suggestions list for four days before moving into their category. Suggestions, votes, and status changes are stored in this browser so the site remains fully static and GitHub Pages compatible.
+New suggestions stay in the Recent suggestions list for four days before moving into their category. Suggestions, votes, and status changes are stored in this browser so the site remains fully static and GitHub Pages compatible. Each browser can upvote a suggestion once. This is a local duplicate-vote safeguard, not customer-level identity enforcement; a true one-vote-per-customer rule requires sign-in and a server-side vote store.
 
 </div>

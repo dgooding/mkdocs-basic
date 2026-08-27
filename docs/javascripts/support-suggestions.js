@@ -14,10 +14,12 @@ document$.subscribe(function () {
   const endpoint = "https://api.github.com/repos/dgooding/mkdocs-basic/issues?labels=feature-request&state=open&per_page=50"
   const localStorageKey = "itsd-suggestions"
   const votesStorageKey = "itsd-suggestion-votes"
+  const votedStorageKey = "itsd-suggestion-voted"
   const statusesStorageKey = "itsd-suggestion-statuses"
   let sharedIssues = []
   let localSuggestions = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
   let votes = JSON.parse(localStorage.getItem(votesStorageKey) || "{}")
+  let voted = JSON.parse(localStorage.getItem(votedStorageKey) || "{}")
   let statuses = JSON.parse(localStorage.getItem(statusesStorageKey) || "{}")
   localSuggestions = localSuggestions.map(function (suggestion, index) {
     return Object.assign({ id: "local-existing-" + index }, suggestion)
@@ -62,11 +64,17 @@ document$.subscribe(function () {
     const vote = document.createElement("button")
     vote.className = "itsd-suggestion-vote"
     vote.type = "button"
-    vote.setAttribute("aria-label", "Upvote " + suggestion.title)
+    const hasVoted = voted[suggestion.id] === true
+    vote.setAttribute("aria-label", hasVoted ? "Upvoted " + suggestion.title : "Upvote " + suggestion.title)
+    vote.setAttribute("aria-pressed", String(hasVoted))
+    vote.disabled = hasVoted
     vote.innerHTML = "<span aria-hidden=\"true\">&uarr;</span><strong>" + (votes[suggestion.id] || 0) + "</strong>"
     vote.addEventListener("click", function () {
+      if (voted[suggestion.id]) return
       votes[suggestion.id] = (votes[suggestion.id] || 0) + 1
+      voted[suggestion.id] = true
       localStorage.setItem(votesStorageKey, JSON.stringify(votes))
+      localStorage.setItem(votedStorageKey, JSON.stringify(voted))
       render()
     })
 
