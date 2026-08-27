@@ -9,14 +9,25 @@
   background: var(--itsd-navy);
 }
 
+.itsd-header-tools {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.1rem;
+  margin-left: 0.3rem;
+}
+
+.itsd-header-tools [data-md-component="palette"] {
+  transform: scale(0.82);
+  transform-origin: center;
+}
+
 .itsd-change-log-link {
   align-items: center;
   color: #d8f2ed;
   display: inline-flex;
-  height: 2.2rem;
+  height: 1.8rem;
   justify-content: center;
-  margin-left: 0.15rem;
-  width: 2.2rem;
+  width: 1.8rem;
 }
 
 .itsd-change-log-link:hover {
@@ -25,8 +36,8 @@
 
 .itsd-change-log-link svg {
   fill: currentColor;
-  height: 1.15rem;
-  width: 1.15rem;
+  height: 1rem;
+  width: 1rem;
 }
 
 .md-tabs {
