@@ -106,26 +106,9 @@ document$.subscribe(function () {
       statuses[suggestion.id] = nextStatus
       localStorage.setItem(statusesStorageKey, JSON.stringify(statuses))
       suggestion.status = nextStatus
-      if (suggestion.id.indexOf("local-") === 0 || suggestion.id.indexOf("local-existing-") === 0) {
-        localStorage.setItem(localStorageKey, JSON.stringify(localSuggestions))
-      }
       render()
     })
     actions.append(statusButton)
-    if (suggestion.id.indexOf("local-") === 0 || suggestion.id.indexOf("local-existing-") === 0) {
-      const deleteButton = document.createElement("button")
-      deleteButton.className = "itsd-suggestion-delete"
-      deleteButton.type = "button"
-      deleteButton.setAttribute("aria-label", "Delete suggestion")
-      deleteButton.title = "Delete suggestion"
-      deleteButton.innerHTML = "<span aria-hidden=\"true\">&times;</span>"
-      deleteButton.addEventListener("click", function () {
-        localSuggestions = localSuggestions.filter(function (entry) { return entry.id !== suggestion.id })
-        localStorage.setItem(localStorageKey, JSON.stringify(localSuggestions))
-        render()
-      })
-      actions.append(deleteButton)
-    }
     item.append(vote, content, actions)
     return item
   }
