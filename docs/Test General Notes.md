@@ -1,6 +1,6 @@
 # Test General Notes
 
-This document is a practical guide for writing and maintaining ITSD documentation. It is intentionally classified as **Other** so the library also demonstrates how useful content can exist outside the main SOP, technical, training, and glossary categories.
+This document is a practical set of notes for writing and maintaining ITSD documentation. It is intentionally classified as **Other** so the library also demonstrates how useful content can exist outside the main document groups.
 
 ## What a good page answers
 
