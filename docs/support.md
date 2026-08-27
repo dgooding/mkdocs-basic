@@ -4,7 +4,7 @@
 
 ## Help improve the documentation
 
-Share a feature request, report a problem, or suggest guidance that would make the ITSD documentation more useful. Your submission is saved in this browser and appears on this page immediately.
+Share a feature request, report a problem, or suggest guidance that would make the ITSD documentation more useful. Submissions open a GitHub Issue so they are available from every browser and device.
 
 </div>
 
@@ -26,7 +26,7 @@ Share a feature request, report a problem, or suggest guidance that would make t
   </select>
   <label for="suggestion-text">What should we improve?</label>
   <textarea id="suggestion-text" name="text" maxlength="500" required></textarea>
-  <button class="md-button md-button--primary" type="submit">Submit feedback</button>
+  <button class="md-button md-button--primary" type="submit">Open GitHub issue</button>
 </form>
 
 <section class="itsd-suggestions" data-suggestions-view>
@@ -66,6 +66,6 @@ Share a feature request, report a problem, or suggest guidance that would make t
 
 <div class="itsd-status" markdown>
 
-New submissions appear in **Recent suggestions** for four days before moving into their category. Suggestions, votes, and status changes are stored in this browser so the site remains fully static and GitHub Pages compatible. Each browser can upvote a suggestion once. This prevents accidental repeat votes in one browser, but it is not customer-level identity enforcement; that requires sign-in and a server-side vote store.
+New GitHub Issues appear after the repository refreshes. Suggestions are shared through GitHub and remain available from every browser and device. Voting and status changes are still tracked per browser because this site remains fully static and GitHub Pages compatible.
 
 </div>
