@@ -1,8 +1,7 @@
 document$.subscribe(function () {
   const themeToggle = document.querySelector('[data-md-component="palette"]')
-  const repositoryLink = document.querySelector('.md-header a[href="https://github.com/dgooding/mkdocs-basic"]')
-  const repositorySource = repositoryLink && repositoryLink.closest('.md-header__source')
-  if (!themeToggle || !repositorySource) return
+  const header = document.querySelector(".md-header__inner")
+  if (!themeToggle || !header) return
 
   let link = document.querySelector("[data-itsd-change-log-link]")
   if (!link) {
@@ -20,7 +19,7 @@ document$.subscribe(function () {
     tools = document.createElement("div")
     tools.className = "itsd-header-tools"
     tools.dataset.itsdHeaderTools = "true"
-    repositorySource.insertAdjacentElement("afterend", tools)
+    header.append(tools)
   }
   tools.append(themeToggle, link)
 })
