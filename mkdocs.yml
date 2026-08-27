@@ -74,6 +74,7 @@ copyright: Copyright &copy; 2026 IT Service Delivery
 
 nav:
   - Home: index.md
+  - Upload Documents: upload-documents.md
   - About: about.md
   - Contact: contact.md
   
