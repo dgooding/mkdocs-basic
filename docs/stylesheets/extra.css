@@ -377,11 +377,11 @@
   border-radius: 2px;
   color: #78909c;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 0.68rem;
   line-height: 1;
   min-height: 1.7rem;
   min-width: 1.7rem;
-  padding: 0.25rem;
+  padding: 0.25rem 0.35rem;
 }
 
 .itsd-suggestion-status:hover {

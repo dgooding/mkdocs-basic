@@ -119,7 +119,10 @@ document$.subscribe(function () {
 
   function render() {
     const suggestions = localSuggestions.concat(sharedIssues)
-    const visibleSuggestions = exampleSuggestions.concat(suggestions)
+    const allSuggestions = dateFilter.value ? suggestions : exampleSuggestions.concat(suggestions)
+    const visibleSuggestions = dateFilter.value ? allSuggestions.filter(function (suggestion) {
+      return suggestion.created && suggestion.created.indexOf(dateFilter.value) === 0
+    }) : allSuggestions
     status.textContent = visibleSuggestions.length + " suggestion" + (visibleSuggestions.length === 1 ? "" : "s")
     const groups = new Map()
     visibleSuggestions.forEach(function (suggestion) {
@@ -166,6 +169,7 @@ document$.subscribe(function () {
     render()
   })
   exportButton.addEventListener("click", exportSuggestions)
+  dateFilter.addEventListener("input", render)
 
   fetch(endpoint, { headers: { Accept: "application/vnd.github+json" } })
     .then(function (response) {
@@ -174,7 +178,7 @@ document$.subscribe(function () {
     })
     .then(function (issues) {
       sharedIssues = issues.map(function (issue) {
-        return { id: "issue-" + issue.number, title: issue.title, category: "Shared suggestion", details: issue.comments + " comments", url: issue.html_url }
+        return { id: "issue-" + issue.number, title: issue.title, category: "Shared suggestion", details: issue.comments + " comments", url: issue.html_url, created: issue.created_at }
       })
       render()
     })
