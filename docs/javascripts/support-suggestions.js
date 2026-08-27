@@ -15,6 +15,16 @@ document$.subscribe(function () {
     { title: "Add a quick reference for escalation paths", details: "Example suggestion | Shared support idea" },
     { title: "Add document owners and review dates", details: "Example suggestion | Shared support idea" },
     { title: "Add a printable troubleshooting checklist", details: "Example suggestion | Shared support idea" },
+    { title: "Add service hours and response expectations", details: "Example suggestion | Shared support idea" },
+    { title: "Add a guide for reporting recurring incidents", details: "Example suggestion | Shared support idea" },
+    { title: "Add a glossary of common ITSD terms", details: "Example suggestion | Shared support idea" },
+    { title: "Add version history to every document", details: "Example suggestion | Shared support idea" },
+    { title: "Add a checklist for new team members", details: "Example suggestion | Shared support idea" },
+    { title: "Add printable quick-start guides", details: "Example suggestion | Shared support idea" },
+    { title: "Add examples of well-written ticket notes", details: "Example suggestion | Shared support idea" },
+    { title: "Add a page for known service issues", details: "Example suggestion | Shared support idea" },
+    { title: "Add document categories and filters", details: "Example suggestion | Shared support idea" },
+    { title: "Add a monthly documentation update summary", details: "Example suggestion | Shared support idea" },
   ]
 
   function renderSuggestion(suggestion) {
