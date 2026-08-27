@@ -12,7 +12,7 @@ I'm leaving this open for a reason, i'll figure out later.
 </div>
 
 <div class="itsd-library-actions">
-	<a class="md-button md-button--primary" href="upload-documents.html">Upload a document</a>
+	<a class="md-button md-button--primary" href="https://github.com/dgooding/mkdocs-basic/upload/main/docs" target="_blank" rel="noopener">Upload a document</a>
 	<a class="md-button" href="https://github.com/dgooding/mkdocs-basic/tree/main/docs" target="_blank" rel="noopener">Manage documents on GitHub</a>
 </div>
 

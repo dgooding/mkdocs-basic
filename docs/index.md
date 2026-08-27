@@ -27,7 +27,7 @@ Be aware, you have full rights to modify this site, so please don't, just yet. I
 
     Put a procedure, PDF, or supporting file where the team can find it.
 
-    [:octicons-arrow-right-24: Upload a document](upload-documents.md)
+    [:octicons-arrow-right-24: Upload a document](https://github.com/dgooding/mkdocs-basic/upload/main/docs){ target="_blank" rel="noopener" }
 
 - :material-lifebuoy: **Improve the reference**
 
