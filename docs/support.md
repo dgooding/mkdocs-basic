@@ -4,7 +4,7 @@
 
 ## Help shape the documentation
 
-Suggest a feature, improvement, or piece of guidance you would like to see here. Suggestions are shared through GitHub so everyone sees the same list and votes.
+Suggest a feature, improvement, or piece of guidance you would like to see here. Suggestions can be posted without logging in and appear immediately on this page.
 
 </div>
 
