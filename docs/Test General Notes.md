@@ -46,5 +46,5 @@ Documentation is part of the operational control, not an afterthought. Update th
 
 ## Further reading
 
-- [Microsoft technical writing guidance](https://learn.microsoft.com/en-us/style-guide/welcome/)
+- [Microsoft Learn](https://learn.microsoft.com/)
 - [Microsoft security documentation](https://learn.microsoft.com/en-us/security/)
