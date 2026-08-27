@@ -193,17 +193,38 @@ document$.subscribe(function () {
   }
 
   function exportSuggestions() {
-    const suggestions = localSuggestions.concat(sharedIssues)
-    const exportSuggestions = suggestions.length ? suggestions : exampleSuggestions
-    const lines = exportSuggestions.map(function (suggestion) {
-      return (suggestion.category || "Other") + "\r\n" + suggestion.title + "\r\n" + suggestion.details + "\r\n"
+    const exportSuggestions = exampleSuggestions.concat(localSuggestions, sharedIssues)
+    const escapeCsvValue = function (value) {
+      return '"' + String(value || "").replace(/"/g, '""') + '"'
+    }
+    const lines = [["Category", "Suggestion", "Details", "Status", "Votes", "Created", "Source", "Link"]]
+    exportSuggestions.forEach(function (suggestion) {
+      const source = suggestion.id.indexOf("issue-") === 0 ? "GitHub" : suggestion.id.indexOf("local-") === 0 || suggestion.id.indexOf("local-existing-") === 0 ? "This browser" : "Example"
+      lines.push([
+        suggestion.category || "Other",
+        suggestion.title,
+        suggestion.details || "",
+        statuses[suggestion.id] || suggestion.status || "pending",
+        votes[suggestion.id] || 0,
+        suggestion.created || "",
+        source,
+        suggestion.url || "",
+      ])
     })
-    const blob = new Blob([lines.join("\r\n") || "No suggestions have been submitted yet.\r\n"], { type: "text/plain" })
+    const csv = "\uFEFF" + lines.map(function (line) {
+      return line.map(escapeCsvValue).join(",")
+    }).join("\r\n")
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8" })
     const link = document.createElement("a")
     link.href = URL.createObjectURL(blob)
-    link.download = "itsd-feature-suggestions.txt"
+    link.download = "itsd-feature-suggestions.csv"
+    link.style.display = "none"
+    document.body.append(link)
     link.click()
-    URL.revokeObjectURL(link.href)
+    setTimeout(function () {
+      URL.revokeObjectURL(link.href)
+      link.remove()
+    }, 0)
   }
 
   function playShredderSound() {
