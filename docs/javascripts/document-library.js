@@ -3,6 +3,7 @@ document$.subscribe(function () {
   if (!results) return
 
   const search = document.querySelector("#document-library-search")
+  const category = document.querySelector("#document-library-category")
   const sort = document.querySelector("#document-library-sort")
   const filters = [...document.querySelectorAll("[data-document-type]")]
   const summary = document.querySelector("[data-document-library-summary]")
@@ -11,17 +12,18 @@ document$.subscribe(function () {
   const pageSize = 25
   let documents = []
   let activeType = "all"
+  let activeCategory = "all"
   let page = 1
 
   function render() {
     const query = search.value.trim().toLowerCase()
     const visible = documents
       .filter(function (item) {
-        return (activeType === "all" || item.typeKey === activeType) && item.name.toLowerCase().includes(query)
+        return (activeType === "all" || item.typeKey === activeType) && (activeCategory === "all" || (item.category || "Other") === activeCategory) && item.name.toLowerCase().includes(query)
       })
       .sort(function (first, second) {
-        const firstValue = sort.value === "type" ? first.type + first.name : first.name
-        const secondValue = sort.value === "type" ? second.type + second.name : second.name
+        const firstValue = sort.value === "type" ? first.type + first.name : sort.value === "category" ? (first.category || "Other") + first.name : first.name
+        const secondValue = sort.value === "type" ? second.type + second.name : sort.value === "category" ? (second.category || "Other") + second.name : second.name
         return firstValue.localeCompare(secondValue)
       })
     const totalPages = Math.max(1, Math.ceil(visible.length / pageSize))
@@ -38,6 +40,8 @@ document$.subscribe(function () {
       documentCell.append(link)
       const typeCell = document.createElement("td")
       typeCell.textContent = item.type
+      const categoryCell = document.createElement("td")
+      categoryCell.textContent = item.category || "Other"
       const actionsCell = document.createElement("td")
       const deleteLink = document.createElement("a")
       deleteLink.className = "itsd-document-delete"
@@ -49,7 +53,7 @@ document$.subscribe(function () {
         if (!window.confirm("Sign in to GitHub and commit the deletion of '" + item.name + "'?")) event.preventDefault()
       })
       actionsCell.append(deleteLink)
-      row.append(documentCell, typeCell, actionsCell)
+      row.append(documentCell, categoryCell, typeCell, actionsCell)
       return row
     }))
 
@@ -74,6 +78,11 @@ document$.subscribe(function () {
     render()
   })
   sort.addEventListener("change", render)
+  category.addEventListener("change", function () {
+    activeCategory = category.value
+    page = 1
+    render()
+  })
   filters.forEach(function (button) {
     button.addEventListener("click", function () {
       activeType = button.dataset.documentType
@@ -93,6 +102,14 @@ document$.subscribe(function () {
     .then(function (response) { return response.json() })
     .then(function (items) {
       documents = items
+      Array.from(new Set(documents.map(function (item) { return item.category || "Other" })))
+        .sort(function (first, second) { return first.localeCompare(second) })
+        .forEach(function (itemCategory) {
+          const option = document.createElement("option")
+          option.value = itemCategory
+          option.textContent = itemCategory
+          category.append(option)
+        })
       render()
     })
     .catch(function () {

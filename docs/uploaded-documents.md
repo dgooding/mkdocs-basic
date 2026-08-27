@@ -18,10 +18,15 @@ Search, filter, open, and manage documents in the shared ITSD library.
 		<button type="button" data-document-type="md" aria-pressed="false">Markdown</button>
 		<button type="button" data-document-type="pdf" aria-pressed="false">PDF</button>
 	</div>
+	<label for="document-library-category">Category</label>
+	<select id="document-library-category" aria-label="Filter documents by category">
+		<option value="all">All categories</option>
+	</select>
 	<label for="document-library-sort">Sort</label>
 	<select id="document-library-sort">
 		<option value="name">Name</option>
 		<option value="type">Type</option>
+		<option value="category">Category</option>
 	</select>
 </div>
 
@@ -36,6 +41,7 @@ Search, filter, open, and manage documents in the shared ITSD library.
 		<thead>
 			<tr>
 				<th scope="col">Document</th>
+				<th scope="col">Category</th>
 				<th scope="col">Type</th>
 				<th scope="col">Actions</th>
 			</tr>
