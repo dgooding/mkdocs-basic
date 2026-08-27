@@ -143,8 +143,24 @@ document$.subscribe(function () {
       return matchesStatus && matchesCategory && matchesDate && matchesKeyword
     })
     status.textContent = visibleSuggestions.length + " suggestion" + (visibleSuggestions.length === 1 ? "" : "s")
+    const recentCutoff = Date.now() - (4 * 24 * 60 * 60 * 1000)
+    const recentSuggestions = visibleSuggestions.filter(function (suggestion) {
+      return suggestion.created && new Date(suggestion.created).getTime() >= recentCutoff
+    })
+    const olderSuggestions = visibleSuggestions.filter(function (suggestion) {
+      return !recentSuggestions.includes(suggestion)
+    })
+    const resultElements = []
+    if (recentSuggestions.length) {
+      const recentSection = document.createElement("section")
+      recentSection.className = "itsd-recent-suggestions"
+      const recentHeading = document.createElement("h3")
+      recentHeading.textContent = "Recent suggestions"
+      recentSection.append(recentHeading, ...recentSuggestions.map(renderSuggestion))
+      resultElements.push(recentSection)
+    }
     const groups = new Map()
-    visibleSuggestions.forEach(function (suggestion) {
+    olderSuggestions.forEach(function (suggestion) {
       const category = suggestion.category || "Other"
       if (!groups.has(category)) groups.set(category, [])
       groups.get(category).push(suggestion)
@@ -158,13 +174,14 @@ document$.subscribe(function () {
       section.append(heading, ...entry[1].map(renderSuggestion))
       return section
     })
-    if (!groupElements.length) {
+    resultElements.push(...groupElements)
+    if (!resultElements.length) {
       const emptyState = document.createElement("p")
       emptyState.className = "itsd-suggestions-empty"
       emptyState.textContent = "No suggestions match these filters."
-      groupElements.push(emptyState)
+      resultElements.push(emptyState)
     }
-    list.replaceChildren(...groupElements)
+    list.replaceChildren(...resultElements)
   }
 
   function exportSuggestions() {

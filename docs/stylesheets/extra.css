@@ -279,6 +279,18 @@
   padding: 1rem;
 }
 
+.itsd-recent-suggestions {
+  border-bottom: 1px solid #d8e7ec;
+}
+
+.itsd-recent-suggestions h3 {
+  background: #fff;
+  color: var(--itsd-navy);
+  font-size: 0.95rem;
+  margin: 0;
+  padding: 0.8rem 1rem 0.25rem;
+}
+
 .itsd-suggestions-header h2 {
   color: var(--itsd-navy);
   font-size: 1.15rem;
