@@ -1,12 +1,84 @@
-site_name: MkLorum
+site_name: ITSD Documentation
+site_description: IT Service Delivery documentation and operational guidance.
+site_url: https://dgooding.github.io/mkdocs-basic/
+repo_url: https://github.com/dgooding/mkdocs-basic
+repo_name: dgooding/mkdocs-basic
+edit_uri: edit/main/docs/
+
 theme:
   name: material
+  language: en
+  logo: assets/itsd-mark.svg
+  favicon: assets/itsd-mark.svg
+  palette:
+    - scheme: default
+      primary: blue
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.tracking
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - toc.follow
     - search.suggest
     - search.highlight
     - search.share
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - content.tooltips
+
+plugins:
+  - search
+  - tags
+  - privacy:
+      assets: false
+  - offline
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dgooding/mkdocs-basic
+
+copyright: Copyright &copy; 2026 IT Service Delivery
+
 nav:
   - Home: index.md
+  - Getting Started: guides/getting-started.md
+  - How-to Guides: how-to/contribute.md
+  - Reference: reference/document-standards.md
+  - Policies: policies/security.md
+  - Browse by Topic: tags.md
   - About: about.md
   - Contact: contact.md
   

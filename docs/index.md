@@ -1,17 +1,55 @@
-# Welcome to MkDocs
+---
+search:
+    boost: 2
+---
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# ITSD Documentation
 
-## Commands
+Operational guidance, service standards, and practical reference material for IT Service Delivery.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+<div class="grid cards" markdown>
 
-## Project layout
+- :material-rocket-launch-outline: **Getting started**
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+    ---
+
+    Set up your workspace and learn the documentation workflow.
+
+    [:octicons-arrow-right-24: Open the guide](guides/getting-started.md)
+
+- :material-file-document-outline: **Document standards**
+
+    ---
+
+    Write consistent, easy-to-find operational documentation.
+
+    [:octicons-arrow-right-24: Read the reference](reference/document-standards.md)
+
+- :material-shield-check-outline: **Security policy**
+
+    ---
+
+    Review the minimum expectations for service documentation.
+
+    [:octicons-arrow-right-24: View the policy](policies/security.md)
+
+- :material-tag-outline: **Browse by topic**
+
+    ---
+
+    Explore related guidance through tags.
+
+    [:octicons-arrow-right-24: Browse topics](tags.md)
+
+</div>
+
+## What belongs here?
+
+- Service runbooks and operating procedures
+- Onboarding and how-to guides
+- Technical standards and reference material
+- Policies that support reliable service delivery
+
+!!! tip "Find information quickly"
+
+        Use the search icon or press <kbd>/</kbd>. Search offers suggestions, highlights matching text, and lets you copy a link to a result.
