@@ -302,11 +302,28 @@
 }
 
 .itsd-suggestion {
-  align-items: center;
   border-bottom: 1px solid #d8e7ec;
+  padding: 0.65rem 0.85rem;
+}
+
+.itsd-suggestion > summary {
+  color: var(--itsd-navy);
+  cursor: pointer;
+  font-size: 0.95rem;
+  list-style-position: outside;
+  margin-left: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.itsd-suggestion > summary:hover {
+  color: #076b63;
+}
+
+.itsd-suggestion-row {
+  align-items: center;
   display: flex;
   gap: 0.7rem;
-  padding: 0.7rem 0.85rem;
+  margin-top: 0.35rem;
 }
 
 .itsd-suggestion-group {

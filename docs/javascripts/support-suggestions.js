@@ -55,9 +55,17 @@ document$.subscribe(function () {
     return isNaN(date.getTime()) ? "" : " | Posted " + date.toLocaleString()
   }
 
+  function suggestionSummary(title) {
+    return title.length > 120 ? title.slice(0, 117) + "..." : title
+  }
+
   function renderSuggestion(suggestion) {
-    const item = document.createElement("article")
+    const item = document.createElement("details")
     item.className = "itsd-suggestion"
+    item.dataset.suggestionId = suggestion.id
+
+    const summary = document.createElement("summary")
+    summary.textContent = suggestionSummary(suggestion.title)
 
     const vote = document.createElement("button")
     vote.className = "itsd-suggestion-vote"
@@ -72,6 +80,9 @@ document$.subscribe(function () {
 
     const content = document.createElement("div")
     content.className = "itsd-suggestion-content"
+
+    const row = document.createElement("div")
+    row.className = "itsd-suggestion-row"
 
     const title = document.createElement("h3")
     if (suggestion.url) {
@@ -123,13 +134,17 @@ document$.subscribe(function () {
       })
       actions.append(deleteButton)
     }
-    item.append(vote, content, actions)
+    row.append(vote, content, actions)
+    item.append(summary, row)
     return item
   }
 
   function render() {
-    const openCategories = new Set(Array.from(list.querySelectorAll("details[open] summary"), function (heading) {
+    const openCategories = new Set(Array.from(list.querySelectorAll("details.itsd-suggestion-group[open] > summary"), function (heading) {
       return heading.textContent.replace(/ \(\d+\)$/, "")
+    }))
+    const openSuggestions = new Set(Array.from(list.querySelectorAll("details.itsd-suggestion[open]"), function (suggestion) {
+      return suggestion.dataset.suggestionId
     }))
     const suggestions = localSuggestions.concat(sharedIssues)
     const allSuggestions = exampleSuggestions.concat(suggestions)
@@ -171,7 +186,11 @@ document$.subscribe(function () {
       const heading = document.createElement("summary")
       heading.textContent = entry[0] + " (" + entry[1].length + ")"
       section.open = openCategories.has(entry[0])
-      section.append(heading, ...entry[1].map(renderSuggestion))
+      section.append(heading, ...entry[1].map(function (suggestion) {
+        const item = renderSuggestion(suggestion)
+        item.open = openSuggestions.has(suggestion.id)
+        return item
+      }))
       return section
     })
     resultElements.push(...groupElements)
