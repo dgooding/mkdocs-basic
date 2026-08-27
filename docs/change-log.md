@@ -30,7 +30,6 @@ This page records the iterative development of the ITSD Documentation site.
 
 - Moved page navigation into a horizontal top bar and positioned the Table of Contents on the right without a backend dependency.
 - Verified that a misspelled query such as `deescalted` identifies **De-escalated Tickets** as the best match and loads it in the main reading pane.
-- User acknowledgment: "You badass."
 
 ### Support and Suggestions
 
