@@ -500,6 +500,73 @@
   margin: 0;
 }
 
+.itsd-home-search {
+  background: #e8f6f3;
+  border-left: 0.25rem solid var(--itsd-teal);
+  margin: 1.25rem 0 2rem;
+  max-width: 52rem;
+  padding: 0.9rem 1rem 1rem;
+}
+
+.itsd-home-search label {
+  color: var(--itsd-navy);
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.itsd-home-search div {
+  align-items: center;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.itsd-home-search input {
+  border: 1px solid #b9d1db;
+  border-radius: 3px;
+  color: var(--itsd-navy);
+  flex: 1 1 auto;
+  font: inherit;
+  min-width: 0;
+  padding: 0.55rem 0.65rem;
+}
+
+.itsd-home-search button {
+  margin: 0;
+}
+
+.itsd-home-routes {
+  display: grid;
+  gap: 0.55rem 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1rem 0 1.5rem;
+  max-width: 52rem;
+}
+
+.itsd-home-routes a {
+  border-bottom: 1px solid #c9dce4;
+  color: var(--itsd-navy);
+  padding: 0.7rem 0.2rem;
+}
+
+.itsd-home-routes a:hover {
+  border-color: var(--itsd-teal);
+  color: #076b63;
+}
+
+@media screen and (max-width: 48rem) {
+  .itsd-home-search div,
+  .itsd-home-routes {
+    grid-template-columns: 1fr;
+  }
+
+  .itsd-home-search div {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
 .itsd-page-intro {
   background: rgb(255 255 255 / 0.7);
   border: 1px solid #d8e7ec;
