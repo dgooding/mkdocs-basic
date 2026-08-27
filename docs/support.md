@@ -32,7 +32,11 @@ Suggest a feature, improvement, or piece of guidance you would like to see here.
 <section class="itsd-suggestions" data-suggestions-view>
   <div class="itsd-suggestions-header">
     <h2>Feature suggestions</h2>
-    <p data-suggestions-status>Loading suggestions...</p>
+    <div class="itsd-suggestions-toolbar">
+      <p data-suggestions-status>Loading suggestions...</p>
+      <label for="suggestion-date">Filter by date</label>
+      <input id="suggestion-date" type="date" data-suggestion-date aria-label="Filter suggestions by date">
+    </div>
   </div>
   <div class="itsd-suggestions-list" data-suggestions-list>
     <p>Loading suggestions...</p>
