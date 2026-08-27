@@ -4,8 +4,8 @@ document$.subscribe(function () {
 
   const list = view.querySelector("[data-suggestions-list]")
   const status = view.querySelector("[data-suggestions-status]")
-  const form = view.querySelector("[data-suggestion-form]")
-  const exportButton = view.querySelector("[data-suggestion-export]")
+  const form = document.querySelector("[data-suggestion-form]")
+  const exportButton = document.querySelector("[data-suggestion-export]")
   const endpoint = "https://api.github.com/repos/dgooding/mkdocs-basic/issues?labels=feature-request&state=open&per_page=50"
   const localStorageKey = "itsd-suggestions"
   let sharedIssues = []
