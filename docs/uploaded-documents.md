@@ -6,7 +6,8 @@
 
 Find documents by name, file type, or category. Select a document title to open it.
 
-This library is hosted on GitHub. Uploading, managing, or deleting files may require you to sign in to GitHub and have the necessary permissions.
+This library is hosted on GitHub. You can modify the documents but then i'd have to fix it so... 
+I'm leaving this open for a reason, i'll figure out later.
 
 </div>
 
