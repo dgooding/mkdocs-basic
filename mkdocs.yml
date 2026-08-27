@@ -80,9 +80,6 @@ extra_css:
 extra_javascript:
   - javascripts/document-library.js
 
-hooks:
-  - hooks/document_library.py
-
 nav:
   - Home: index.md
   - Documents: uploaded-documents.md
