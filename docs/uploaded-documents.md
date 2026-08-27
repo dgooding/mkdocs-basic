@@ -48,6 +48,6 @@ Search, filter, open, and manage documents in the shared ITSD library.
 
 <div class="itsd-status" markdown>
 
-Delete opens GitHub's file editor. You need repository write permission to delete the file and commit the change. Delete all documents opens the full `docs` folder so you can remove files one at a time and commit the changes together.
+Delete always hands off to GitHub. If you are not signed in, GitHub will require sign-in first; the file is deleted only after an authorized user reviews and commits the change. Delete all documents opens the full `docs` folder so you can remove files one at a time and commit the changes together.
 
 </div>

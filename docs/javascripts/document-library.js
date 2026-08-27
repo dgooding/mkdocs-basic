@@ -46,7 +46,7 @@ document$.subscribe(function () {
       deleteLink.rel = "noopener"
       deleteLink.textContent = "Delete"
       deleteLink.addEventListener("click", function (event) {
-        if (!window.confirm("Open GitHub to delete '" + item.name + "'?")) event.preventDefault()
+        if (!window.confirm("Sign in to GitHub and commit the deletion of '" + item.name + "'?")) event.preventDefault()
       })
       actionsCell.append(deleteLink)
       row.append(documentCell, typeCell, actionsCell)
@@ -86,7 +86,7 @@ document$.subscribe(function () {
   })
 
   deleteAll.addEventListener("click", function (event) {
-    if (!window.confirm("Open GitHub to delete all documents? You will review and commit the deletions there.")) event.preventDefault()
+    if (!window.confirm("Sign in to GitHub and commit the deletion of the selected documents? You will review each deletion there.")) event.preventDefault()
   })
 
   fetch(new URL("assets/document-library.json", document.baseURI))
