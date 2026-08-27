@@ -11,8 +11,6 @@ search:
 
 Find the procedure, handoff, or service note you need to resolve the next ticket with confidence.
 
-Be aware, you have full rights to modify this site, so please don't, just yet. I've gotta figure out a Docs Converter thing first.
-
 </div>
 
 <div class="grid cards itsd-actions" markdown>

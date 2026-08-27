@@ -6,8 +6,6 @@
 
 Find documents by name, file type, or category. Select a document title to open it.
 
-These files are hosted centrally and you have full access, please don't modify them yet... still need to figure out how to get this on AzDo OpenShift.
-
 </div>
 
 <div class="itsd-library-actions">
