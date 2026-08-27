@@ -63,6 +63,6 @@ Find documents by name, file type, or category. Select a document title to open 
 
 <div class="itsd-status" markdown>
 
-**Deleting documents:** Delete opens a confirmation page in the source repository. You may need to sign in, and no file is removed until an authorized user commits the deletion. Use **Manage documents** to review or remove several files.
+**Deleting documents:** Delete opens a confirmation page in the source repository. You may need to sign in, and no file is removed until an authorized user commits the deletion. Use **Browse files on GitHub** to review or remove several files.
 
 </div>
