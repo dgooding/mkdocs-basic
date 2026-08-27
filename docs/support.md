@@ -4,7 +4,7 @@
 
 ## Help improve the documentation
 
-Share a feature request, report a problem, or suggest guidance that would make the ITSD documentation more useful. Submissions open a GitHub Issue so they are available from every browser and device.
+Share a feature request, report a problem, or suggest guidance that would make the ITSD documentation more useful. Your suggestion appears immediately in this browser; use GitHub to share it with everyone.
 
 </div>
 
@@ -26,7 +26,7 @@ Share a feature request, report a problem, or suggest guidance that would make t
   </select>
   <label for="suggestion-text">What should we improve?</label>
   <textarea id="suggestion-text" name="text" maxlength="500" required></textarea>
-  <button class="md-button md-button--primary" type="submit">Open GitHub issue</button>
+  <button class="md-button md-button--primary" type="submit">Submit feedback</button>
 </form>
 
 <section class="itsd-suggestions" data-suggestions-view>
@@ -66,6 +66,6 @@ Share a feature request, report a problem, or suggest guidance that would make t
 
 <div class="itsd-status" markdown>
 
-New GitHub Issues appear after the repository refreshes. Suggestions are shared through GitHub and remain available from every browser and device. Voting and status changes are still tracked per browser because this site remains fully static and GitHub Pages compatible.
+New submissions appear immediately in this browser. GitHub Issues are shared across browsers and devices; browser-local suggestions are not. Voting and status changes are tracked per browser because this site remains fully static and GitHub Pages compatible.
 
 </div>
