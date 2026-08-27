@@ -9,7 +9,7 @@ search:
 
 ## Your IT Service Delivery knowledge base
 
-Find the procedure, handoff, or service note you need before the next ticket becomes a fire drill.
+Find the procedure, handoff, or service note you need to resolve the next ticket with confidence.
 
 </div>
 
