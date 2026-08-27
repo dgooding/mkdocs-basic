@@ -6,6 +6,8 @@ tags:
 
 # About This Site
 
+I only added these pages cause 2001 highschool told me too.
+
 <div class="itsd-page-intro" markdown>
 
 ## The working memory of IT Service Delivery

@@ -60,10 +60,6 @@
   background-color: var(--itsd-navy);
 }
 
-.itsd-search-routing .md-search__scrollwrap {
-  display: none;
-}
-
 .md-sidebar--primary,
 .md-header label[for="__drawer"] {
   display: none;
