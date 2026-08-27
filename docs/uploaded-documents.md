@@ -27,6 +27,9 @@ Search, filter, open, and manage documents in the shared ITSD library.
 
 <div class="itsd-library-summary" data-document-library-summary>Loading documents...</div>
 
+<div class="itsd-library-actions">
+	<a class="itsd-library-manage" href="https://github.com/dgooding/mkdocs-basic/tree/main/docs" target="_blank" rel="noopener" data-delete-all-documents>Delete all documents</a>
+</div>
 
 <div class="itsd-library-table-wrap">
 	<table class="itsd-library-table">
@@ -45,6 +48,6 @@ Search, filter, open, and manage documents in the shared ITSD library.
 
 <div class="itsd-status" markdown>
 
-Delete opens GitHub's file editor. You need repository write permission to delete the file and commit the change.
+Delete opens GitHub's file editor. You need repository write permission to delete the file and commit the change. Delete all documents opens the full `docs` folder so you can remove files one at a time and commit the changes together.
 
 </div>

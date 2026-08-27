@@ -7,6 +7,7 @@ document$.subscribe(function () {
   const filters = [...document.querySelectorAll("[data-document-type]")]
   const summary = document.querySelector("[data-document-library-summary]")
   const pagination = document.querySelector("[data-document-library-pagination]")
+  const deleteAll = document.querySelector("[data-delete-all-documents]")
   const pageSize = 25
   let documents = []
   let activeType = "all"
@@ -82,6 +83,10 @@ document$.subscribe(function () {
       })
       render()
     })
+  })
+
+  deleteAll.addEventListener("click", function (event) {
+    if (!window.confirm("Open GitHub to delete all documents? You will review and commit the deletions there.")) event.preventDefault()
   })
 
   fetch(new URL("assets/document-library.json", document.baseURI))

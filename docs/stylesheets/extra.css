@@ -665,6 +665,21 @@
   margin: 0.85rem 0 0.35rem;
 }
 
+.itsd-library-actions {
+  margin: 0 0 0.65rem;
+  max-width: 52rem;
+  text-align: right;
+}
+
+.itsd-library-manage {
+  color: #b3261e;
+  font-size: 0.8rem;
+}
+
+.itsd-library-manage:hover {
+  color: #8c1d18;
+}
+
 .itsd-library-table-wrap {
   border: 1px solid #d8e7ec;
   max-width: 52rem;
