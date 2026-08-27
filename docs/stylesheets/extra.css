@@ -1,0 +1,70 @@
+:root {
+  --itsd-navy: #123d5a;
+  --itsd-blue: #1675a9;
+  --itsd-teal: #0d9488;
+  --itsd-mist: #eef6f8;
+}
+
+.md-header {
+  background: var(--itsd-navy);
+}
+
+.md-tabs {
+  background: var(--itsd-navy);
+}
+
+.md-main {
+  background: linear-gradient(180deg, var(--itsd-mist) 0, #fff 20rem);
+}
+
+.md-typeset h1 {
+  color: var(--itsd-navy);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.itsd-intro {
+  border-left: 0.25rem solid var(--itsd-teal);
+  margin: 1.25rem 0 2rem;
+  max-width: 46rem;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+}
+
+.itsd-intro h2 {
+  color: var(--itsd-navy);
+  font-size: 1.4rem;
+  margin: 0 0 0.35rem;
+}
+
+.itsd-intro p {
+  font-size: 1.08rem;
+  margin: 0;
+}
+
+.itsd-actions {
+  max-width: 50rem;
+}
+
+.itsd-actions .md-button {
+  color: var(--itsd-blue);
+  font-weight: 700;
+}
+
+.itsd-actions > ul > li {
+  border-color: #c9dce4;
+  box-shadow: 0 0.2rem 0.65rem rgb(18 61 90 / 0.08);
+}
+
+.itsd-actions > ul > li:hover {
+  border-color: var(--itsd-teal);
+  box-shadow: 0 0.35rem 0.9rem rgb(18 61 90 / 0.14);
+}
+
+[data-md-color-scheme="slate"] .md-main {
+  background: #18242b;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .itsd-intro h2 {
+  color: #79c7ef;
+}

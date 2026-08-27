@@ -10,6 +10,9 @@ theme:
   language: en
   logo: assets/itsd-mark.svg
   favicon: assets/itsd-mark.svg
+  font:
+    text: Source Sans 3
+    code: IBM Plex Mono
   palette:
     - scheme: default
       primary: blue
@@ -71,6 +74,9 @@ extra:
       link: https://github.com/dgooding/mkdocs-basic
 
 copyright: Copyright &copy; 2026 IT Service Delivery
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Home: index.md
