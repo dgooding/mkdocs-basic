@@ -9,25 +9,9 @@
   background: var(--itsd-navy);
 }
 
-.md-header__source,
 .itsd-header-tools {
   flex-shrink: 0;
   white-space: nowrap;
-}
-
-.md-header__source {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  max-width: none !important;
-  width: auto !important;
-}
-
-.md-source {
-  width: 1.1rem;
-}
-
-.md-source__repository {
-  display: none;
 }
 
 .itsd-header-tools {
