@@ -3,6 +3,7 @@ document$.subscribe(function () {
   if (!searchInput || searchInput.dataset.resultsPageBound) return
 
   searchInput.dataset.resultsPageBound = "true"
+  const searchContainer = searchInput.closest(".md-search")
   let navigationTimer
 
   function openSearchResults() {
@@ -14,6 +15,7 @@ document$.subscribe(function () {
   }
 
   searchInput.addEventListener("input", function () {
+    if (searchContainer) searchContainer.classList.toggle("itsd-search-routing", Boolean(searchInput.value.trim()))
     clearTimeout(navigationTimer)
     navigationTimer = setTimeout(openSearchResults, 500)
   })
